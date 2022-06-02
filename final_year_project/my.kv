@@ -1,0 +1,362 @@
+#:kivy 2.0.0 
+
+# main interface (very important)
+<WindowManagerEx>:
+    LiteEx:
+#     # Container:
+#     # # Piction:
+    # NewScreen:
+    # VideoExample:
+#     AnotherScreen:
+    # Inspection_page: 
+
+<LiteEx>:
+    BoxLayout:
+        orientation: 'vertical'
+        size: self.width, self.height
+
+        Label:
+            id: word_label
+            text:'Enter A Name'
+            text_size: self.size
+            halign: 'center'
+            valign: 'middle'
+
+        TextInput:
+            id: word_input
+            multiline: False
+            size_hint: 1,.5
+
+        Button:
+            size_hint: 1,.5
+            font_size:32
+            text: "Submit Name"
+            on_press: root.submit()
+
+        Button:
+            size_hint: 1,.5
+            font_size:32
+            text: "Show Name"
+            on_press: root.show_name()
+
+
+<Inspection_page>:
+    ScrollView:
+        # size: self.size
+        # GridLayout:
+
+        GridLayout:
+            # size_hint: 1, None
+            # height: self.minimum_height
+            # size_hint_y: None 
+            # height: self.minimum_height
+            # width: self.minimum_width
+            cols: 2
+            spacing:"20dp"
+            padding: "20dp"
+            background_color: 1,1,1,0.5
+            BoxLayout:
+                orientation:'vertical'
+                Image:
+                    id: image_source
+                    source: 'images/foo.jpg' 
+                    size: self.size
+
+            BoxLayout:
+                orientation:'vertical'
+                Image:
+                    id: image_source
+                    source: 'images/foo.jpg' 
+                    size: self.size
+
+
+            CheckBox:
+                id:check_box_100
+                on_active: root.checkbox_click(self,self.active,'Cage 100')
+
+           
+            CheckBox:
+                id:check_box_100
+                on_active: root.checkbox_click(self,self.active,'Cage 100')
+            
+            BoxLayout:
+                orientation:'vertical'
+                Image:
+                    id: image_source
+                    source: 'images/foo.jpg' 
+                    size: self.size
+
+            BoxLayout:
+                orientation:'vertical'
+                Image:
+                    id: image_source
+                    source: 'images/foo.jpg' 
+                    size: self.size
+            CheckBox:
+                id:check_box_100
+                on_active: root.checkbox_click(self,self.active,'Cage 100')
+        
+            CheckBox:
+                id:check_box_101
+                on_active: root.checkbox_click(self,self.active,'Cage 101')
+            # BoxLayout:
+            #     orientation:'vertical'
+            #     Image:
+            #         id: image_source
+            #         source: 'images/foo.jpg' 
+            #         size: self.size
+            # CheckBox:
+            #     id:check_box_102
+            #     on_active: root.checkbox_click(self,self.active,'Cage 102')
+            # BoxLayout:
+            #     orientation:'vertical'
+            #     Image:
+            #         id: image_source
+            #         source: 'images/foo.jpg' 
+            #         size: self.size
+            # CheckBox:
+            #     id:check_box_103
+            #     on_active: root.checkbox_click(self,self.active,'Cage 103')
+
+
+
+
+
+<NewScreen>:
+    # GridLayout:
+    #     rows:2
+
+    GridLayout:
+        cols: 2
+        padding: 10
+        # spacing:3
+        BoxLayout:
+            orientation:'vertical'
+            Image:
+                id: image_source
+                source: 'images/foo.jpg' 
+                size: self.size
+        BoxLayout:
+            orientation:'vertical'
+            Image:
+                id: image_source_1
+                source: 'images/foo.jpg' 
+                size: self.size
+        BoxLayout:
+            orientation:'vertical'
+            Image:
+                id: image_source_2
+                source: 'images/foo.jpg' 
+                size: self.size
+        BoxLayout:
+            orientation:'vertical'
+            Image:
+                id: image_source_3
+                source: 'images/foo.jpg' 
+                size: self.size
+        # RelativeLayout:
+
+
+<AnotherScreen>:
+    name: "player"
+
+
+<VideoExample>:
+    name: "video_player"
+    GridLayout:
+        rows:3
+        # spacing: 1.5
+        BoxLayout:
+            canvas.before:
+                Color:
+                    rgba: 1, 0, 1 ,0.4
+                Rectangle:
+                    size: self.size
+                    pos: self.pos
+
+            orientation: 'horizontal'
+            size_hint: 1, None
+            pos_hint: {'top': 1}
+            height: 44
+            Label:
+                height: 24
+                text_size: self.width, None
+                text: '   Date: ' + root.my_text
+
+            Label:
+                height: 24
+                text_size: self.width, None
+                text: '  Time: ' + root.my_text_2
+        
+        BoxLayout:
+            GridLayout:
+                rows: 1
+                Image:
+                    id: image_source
+                    source: 'images/foo.jpg' 
+                    size: self.size
+                
+                # BoxLayout:
+                #     canvas:
+                #         Rectangle:
+                #             id: image_source
+                #             size: self.size
+                #             pos: self.pos
+                #             source: "images/foo.jpg"
+                # RelativeLayout:
+                #     cols: 3
+                #     size_hint_y:None
+                #     height: 70
+                #     Label:
+                #         text:''
+                #         pos_hint: {'bottom':1,'left': 1}
+
+                #     Button:
+                #         id: play_stop_btn
+                #         text: "Play"
+                #         size_hint: 0.25, 1
+                #         background_color:0, 0, 1 ,0.95
+                #         # width: 250
+                #         pos_hint: {'bottom':1,'right':0.75}
+                #         # on_press: root.confirmation_dialog_box()
+                #         #     root.manager.transition.direction="left"  
+                #     Button:
+                #         text: "Setting"
+                #         size_hint: 0.25, 1
+                #         background_color:1, 0, 1 ,0.6
+                #         # width: 250
+                #         pos_hint: {'bottom':1,'right': 0.5}
+                #     Label:
+                #         text:''
+                #         pos_hint: {'bottom':1,'right': 1}
+                #         # on_press: 
+                #         #     root.manager.current="video_to_play"
+                #         #     root.manager.transition.direction="left" 
+                    
+
+        RelativeLayout:
+            cols:4
+            size_hint_y:None
+            height: 70
+            spacing: 30
+            Button:
+                text: "Back"
+                size_hint: 0.25, 1
+                # width: 250
+                background_color:0, 0, 1 ,1
+                pos_hint: {'bottom':1, 'left': 1}
+                on_press: root.manager.current="container"
+                # on_release:
+                #     root.manager.current="eventgrid"
+                #     root.manager.transition.direction="right" 
+
+            Button:
+                text: "Setting"
+                size_hint: 0.25, 1
+                background_color:1, 0, 1 ,0.6
+                # width: 250
+                pos_hint: {'bottom':1,'right': 0.75}
+                on_press: root.setting_btn()
+                 
+
+                # on_press: 
+                #     root.manager.current="video_to_play"
+                #     root.manager.transition.direction="left"  
+            Button:
+                id: play_stop_btn
+                text: "Play"
+                size_hint: 0.25, 1
+                background_color:0, 0, 1 ,1
+                # width: 250
+                pos_hint: {'bottom':1,'right':0.5}
+                on_press: root.playPause()
+                #     root.manager.transition.direction="left"  
+
+            Button:
+                text: "Close"
+                size_hint: 0.25, 1
+                background_color:0, 0, 1 ,0.95
+                # width: 250
+                pos_hint: {'bottom':1, 'right': 1}
+                on_press: root.manager.current="container"
+                # on_press: root.deselect_selected_cages(self)
+                # on_release:
+                #     root.manager.current="welcome"
+                #     root.manager.transition.direction="left" 
+
+        
+    # BoxLayout:
+	# 	orientation: 'vertical'
+	# 	padding: root.width * 0.05, root.height * .05
+	# 	spacing: '5dp'
+	# 	BoxLayout:
+	# 		size_hint: [1,.85]
+	# 		Image:
+	# 			id: image_source
+	# 			source: 'images/foo.jpg'
+	# 	BoxLayout:
+	# 		size_hint: [1,.15]
+	# 		GridLayout:
+	# 			cols: 3
+	# 			spacing: '10dp'
+	# 			Button:
+	# 				id: status
+	# 				text:'Play'
+	# 				bold: True
+	# 				# on_press: root.playPause()
+	# 			Button:
+	# 				text: 'Close'
+	# 				bold: True
+	# 				# on_press: root.close()
+	# 			Button:
+	# 				text: 'Setting'
+	# 				bold: True
+	# 				# on_press: root.setting()
+
+
+<Piction>:
+    name:"pic"
+    BoxLayout:
+        Label:
+            text: root.cont
+
+        Button:
+            text: 'okay'
+            on_press: root.select_id()
+        
+<Container>:
+    name: "container"
+    text_input: text_input
+    label_wid: label_wid
+
+    BoxLayout:
+        orientation: 'vertical'
+        padding: 50
+        spacing: 50
+
+       
+
+        # Button:
+        #     text: 'Hello World'
+
+        TextInput:
+            id: text_input
+            font_size: 60
+            multiline: False
+            text:''
+
+        Label:
+            id: label_wid
+            text:'Some Text'
+
+        FloatLayout:
+            Button:
+                pos_hint: {'center_x':0.5, 'y':0.1}
+                text: 'Go!'
+                font_size: 40
+                on_press:  root.change_label_text()
+                on_release: 
+                    app.root.current = "video_player"
+                    root.manager.transition.direction = "left"
+                    # self.text = 'New text'
+                    

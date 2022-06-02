@@ -1,0 +1,28 @@
+Event Category: Room-Level Event
+Duration: 23
+Date: 09.11.2021
+Description: Room Alarm
+Recorded_by: AAA
+Type: Room Alarm
+
+Event Category: Room-Level Event
+Duration: 24
+Date: 10.11.2021
+Description: A spoon fell
+Recorded_by: AAA
+Type: Fallen Object
+
+Event Category: Room-Level Event
+Duration: 
+Date: 17.11.2021
+Description: 
+Recorded_by: 
+Type: Select Event Type
+
+Event Category: Room-Level Event
+Duration: 
+Date: 08.12.2021
+Description: 
+Recorded_by: 
+Type: Room clean
+

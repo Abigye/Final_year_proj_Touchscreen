@@ -1,0 +1,37 @@
+Cage Number: 11
+Animal ID: blalala
+Event Category: Animal Event
+Duration: 24
+Date: 09.11.2021
+Weight: 
+Length: 
+Dosage: okokok
+Description: kkkkk
+Recorded_by: AAA
+Type: Injection
+
+
+Cage Number: 8
+Animal ID: Select Animal By Color
+Event Category: Animal Event
+Duration: 
+Date: 18.11.2021
+Weight: 
+Length: 
+Dosage: 
+Description: 
+Recorded_by: 
+Type: Select Event Type
+
+Cage Number: 1
+Animal ID: Select Animal By Color
+Event Category: Animal Event
+Duration: 
+Date: 08.12.2021
+Weight: 
+Length: 
+Dosage: 
+Description: 
+Recorded_by: 
+Type: Select Event Type
+

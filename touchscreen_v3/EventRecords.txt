@@ -1,0 +1,369 @@
+Cage_number: 10
+Animal_ID: Select Animal By ID
+Event_category: Animal Event
+Start_time: 
+End_time: 
+Date: 01.02.2022
+Weight: 
+Length: 
+Dosage: 
+Description: 
+Type: Select Event Type
+
+Cage_number: 11
+Event_category: Cage Event
+Start_time: 
+End_time: 
+Date: 01.02.2022
+Description: 
+Type: Select Event Type
+
+Event_category: Room Level Event
+Start_time: 
+End_time: 
+Date: 01.02.2022
+Description: 
+Type: Select Event Type
+
+Event_category: Rack Event
+Start_time: 
+End_time: 
+Date: 01.02.2022
+Description: 
+Type: Select Event Type
+
+Event_category: Rack Event
+Start_time: 
+End_time: 
+Date: 01.02.2022
+Description: 
+Type: Select Event Type
+
+Event_category: Rack Event
+Start_time: 
+End_time: 
+Date: 01.02.2022
+Description: 
+Type: Multicage Inspection
+
+Event_category: Rack Event
+Selected_cages:  Cage 2, Cage 5, Cage 1, Cage 3, Cage 4, Cage 6, Cage 7, Cage 8, Cage 9, Cage 10, Cage 11, Cage 12
+Start_time: 
+End_time: 
+Date: 01.02.2022
+Description: 
+Type: Multicage Inspection
+
+Event_category: Room Level Event
+Start_time: 13:43
+End_time: 13:44
+Date: 16.02.2022
+Description: 
+Type: Noise Alarm
+
+Cage_number: 4
+Animal_ID: 989001025056810
+Event_category: Animal Event
+Start_time: 14:31
+End_time: 14:32
+Date: 08.03.2022
+Weight: 
+Length: 
+Dosage: 
+Description: 
+Type: Select Event Type
+
+Event_category: Room Level Event
+Start_time: 
+End_time: 
+Date: 08.03.2022
+Description: 
+Type: Room clean
+
+Event_category: Room Level Event
+Start_time: 1300
+End_time: 1315
+Date: 17.3.2022
+Description: Alarm sounded
+Type: Noise Alarm
+
+Event_category: Rack Event
+Selected_cages:  Cage 1, Cage 4, Cage 5, Cage 6, Cage 8
+Start_time: 09:00
+End_time: 10:00
+Date: 9.3.2022
+Description: Nothing significant affected
+Type: Multicage Inspection
+
+Cage_number: 2
+Animal_ID: 989001025056804
+Event_category: Animal Event
+Start_time: 0940
+End_time: 0941
+Date: 09.03.2022
+Weight: 
+Length: 
+Dosage: 50mg
+Description: 
+Type: Injection
+
+Cage_number: 9
+Event_category: Cage Event
+Start_time: 1200
+End_time: 1230
+Date: 09.03.2022
+Description: Cage removed, no other significant changes.
+Type: Cage Move
+
+Event_category: Room Level Event
+Start_time: 1900
+End_time: 0700
+Date: 17.3.2022
+Description: Lights left on over night
+Type: Abnormal lighting
+
+Event_category: Room Level Event
+Start_time: 13:00
+End_time: 13:15
+Date: 17.2.2022
+Description: Alarm sounded 
+Type: Noise Alarm
+
+Event_category: Rack Event
+Selected_cages:  Cage 4, Cage 6, Cage 1, Cage 5, Cage 8
+Start_time: 9:00
+End_time: 10:00
+Date: 09.03.2022
+Description: Nothing affected
+Type: Multicage Inspection
+
+Cage_number: 2
+Animal_ID: 989001025056803
+Event_category: Animal Event
+Start_time: 
+End_time: 
+Date: 25.2.2022
+Weight: 
+Length: 
+Dosage: 
+Description: Amphetamine
+Type: Injection
+
+Cage_number: 9
+Event_category: Cage Event
+Start_time: 12:00
+End_time: 12:30
+Date: 09.03.2022
+Description: 
+Type: Cage Move
+
+Cage_number: 1
+Animal_ID: 989001025056802
+Event_category: Animal Event
+Start_time: 12:00	
+End_time: 12:15
+Date: 10.03.2022
+Weight: 20g
+Length: 
+Dosage: 
+Description: 
+Type: Weight Measurement
+
+Event_category: Room Level Event
+Start_time: 10:00	
+End_time: 10:30
+Date: 10.03.2022
+Description: cage checks
+Type: Room clean
+
+Event_category: Rack Event
+Selected_cages:  Cage 2, Cage 4
+Start_time: 
+End_time: 
+Date: 10.03.2022
+Description: 
+Type: Multicage Inspection
+
+Event_category: Rack Event
+Selected_cages:  Cage 1, Cage 5
+Start_time: 12:00	
+End_time: 12:45
+Date: 10.03.2022
+Description: 
+Type: Cage cleaning
+
+Event_category: Room Level Event
+Start_time: 13:00
+End_time: 13:15
+Date: 17.2.2022
+Description: alarm
+Type: Noise Alarm
+
+Event_category: Rack Event
+Selected_cages:  Cage 1, Cage 4, Cage 5, Cage 6, Cage 8
+Start_time: 09:00
+End_time: 10:00
+Date: 10.03.2022
+Description: nothing affected
+Type: Multicage Inspection
+
+Cage_number: 2
+Animal_ID: 989001025056802
+Event_category: Animal Event
+Start_time: 
+End_time: 
+Date: 10.03.2022
+Weight: 20g
+Length: 
+Dosage: 0.5 mg/kg amphetamine
+Description: 
+Type: Injection
+
+Cage_number: 9
+Event_category: Cage Event
+Start_time: 12:00	
+End_time: 12:30
+Date: 10.03.2022
+Description: 
+Type: Cage Move
+
+Event_category: Room Level Event
+Start_time: 13:00
+End_time: 13:15
+Date: 17.2.2022
+Description: NA
+Type: Noise Alarm
+
+Event_category: Rack Event
+Selected_cages:  Cage 1, Cage 4, Cage 5, Cage 6, Cage 8
+Start_time: 9:00
+End_time: 10:00
+Date: 10.03.2022
+Description: nothing affected
+Type: Multicage Inspection
+
+Cage_number: 2
+Animal_ID: Select Animal By ID
+Event_category: Animal Event
+Start_time: 
+End_time: 
+Date: 10.03.2022
+Weight: 
+Length: 
+Dosage: 0.5 mg/kg
+Description: Amphetamine
+Type: Injection
+
+Cage_number: 9
+Event_category: Cage Event
+Start_time: 12:00
+End_time: 12:30
+Date: 10.3.2022
+Description: cage move
+Type: Select Event Type
+
+Event_category: Room Level Event
+Start_time: 13:00
+End_time: 13:15
+Date: 17.2.2022
+Description: 
+Type: Noise Alarm
+
+Event_category: Rack Event
+Selected_cages:  Cage 1, Cage 4, Cage 5, Cage 6, Cage 8
+Start_time: 09:00
+End_time: 10:00
+Date: 25.03.2022
+Description: nothing affected
+Type: Multicage Inspection
+
+Cage_number: 2
+Animal_ID: 989001025056804
+Event_category: Animal Event
+Start_time: 11:30
+End_time: 11:35
+Date: 25.03.2022
+Weight: 25
+Length: 90
+Dosage: 0.5mg/kg
+Description: Amphetamine
+Type: Injection
+
+Cage_number: 9
+Event_category: Cage Event
+Start_time: 12:00
+End_time: 12:30
+Date: 25.03.2022
+Description: 
+Type: Cage Move
+
+Event_category: Room Level Event
+Start_time: 13:00
+End_time: 13:15
+Date: 17.2.2022
+Description: 
+Type: Noise Alarm
+
+Event_category: Rack Event
+Selected_cages:  Cage 1, Cage 4, Cage 5, Cage 6, Cage 8
+Start_time: 09:00
+End_time: 10:00
+Date: 28.03.2022
+Description: 
+Type: Multicage Inspection
+
+Cage_number: 2
+Animal_ID: Select Animal By ID
+Event_category: Animal Event
+Start_time: 
+End_time: 
+Date: 28.03.2022
+Weight: 
+Length: 
+Dosage: 0.5mg/kg
+Description: Amohetamine
+Type: Injection
+
+Cage_number: 9
+Event_category: Cage Event
+Start_time: 12:00
+End_time: 112:30
+Date: 28.03.2022
+Description: 
+Type: Cage clean
+
+Event_category: Room Level Event
+Start_time: 1300
+End_time: 1315
+Date: 17.2.2022
+Description: 
+Type: Noise Alarm
+
+Event_category: Rack Event
+Selected_cages:  Cage 1, Cage 4, Cage 5, Cage 6, Cage 8
+Start_time: 0900
+End_time: 1000
+Date: 28.03.2022
+Description: Nothing affected
+Type: Multicage Inspection
+
+Cage_number: 2
+Animal_ID: 989001025056804
+Event_category: Animal Event
+Start_time: 
+End_time: 
+Date: 28.03.2022
+Weight: 
+Length: 
+Dosage: 0.5mg/kg
+Description: Amphetamine
+Type: Injection
+
+Cage_number: 9
+Event_category: Cage Event
+Start_time: 1200
+End_time: 1230
+Date: 28.03.2022
+Description: 
+Type: Cage Move
+

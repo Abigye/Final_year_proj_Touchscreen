@@ -1,0 +1,46 @@
+Cage_number: Cage 1
+Animal_ID: 989001025056802
+Event_category: Animal Event
+Start_time: 
+End_time: 
+Date: 24.04.2022
+Weight: 
+Length: 
+Dosage: 
+Description: 
+Type: Select Event Type
+
+Cage_number: Cage 8
+Event_category: Cage Event
+Start_time: 
+End_time: 
+Date: 24.04.2022
+Description: 
+Type: Cage clean
+
+Event_category: Room Level Event
+Start_time: 
+End_time: 
+Date: 24.04.2022
+Description: 
+Type: Noise Alarm
+
+Cage_number: Cage 1
+Animal_ID: Select Animal By ID
+Event_category: Animal Event
+Start_time: 
+End_time: 
+Date: 25.04.2022
+Weight: 
+Length: 
+Dosage: 
+Description: 
+Type: Oral dose
+
+Event_category: Room Level Event
+Start_time: 
+End_time: 
+Date: 25.04.2022
+Description: 
+Type: Room clean
+

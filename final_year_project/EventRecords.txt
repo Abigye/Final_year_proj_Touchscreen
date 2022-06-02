@@ -1,0 +1,98 @@
+Event_category: Inspect Cages
+Inspection_start_time: 1
+Inspection_end_time: 3
+Date: January 12, 2022
+Time_recorded: 20:03:17
+Cages_Inspected:  Cage 1, Cage 2, Cage 3, Cage 4, Cage 5, Cage 6, Cage 7, Cage 8, Cage 9, Cage 10, Cage 11, Cage 12
+
+Event_category: Inspect Cages
+Inspection_start_time: 
+Inspection_end_time: 
+Date: January 12, 2022
+Time_recorded: 20:44:02
+Cages_Inspected:  
+
+Event_category: Inspect Cages
+Inspection_start_time: 9;00
+Inspection_end_time: 21:00
+Date: January 12, 2022
+Time_recorded: 20:46:49
+Cages_Inspected:  Cage 6, Cage 4, Cage 9
+
+Event_category: Inspect Cages
+Inspection_start_time: 0
+Inspection_end_time: 0
+Date: January 12, 2022
+Time_recorded: 20:49:06
+Cages_Inspected:  Cage 1, Cage 2, Cage 3, Cage 4, Cage 5, Cage 6, Cage 7, Cage 8, Cage 9, Cage 10, Cage 11, Cage 12
+
+Cage_number: 12
+Animal_ID: 989001025056802
+Event_category: Animal Event
+Duration: 
+Date: 15.1.2022
+Weight: 
+Length: 
+Dosage: 
+Description: 
+Type: Injection
+
+Event_category: Room-Level Event
+Duration: 
+Date: 14.01.2022
+Description: 
+Type: Select Event Type
+
+Cage_number: 1
+Animal_ID: 9890010250568613
+Event_category: Animal Event
+Duration: 
+Date: 17.01.2022
+Weight: 
+Length: 
+Dosage: 
+Description: 
+Type: Select Event Type
+
+Cage_number: 5
+Animal_ID: 989001025056802
+Event_category: Animal Event
+Duration: 
+Date: 17.01.2022
+Weight: 
+Length: 
+Dosage: 
+Description: 
+Type: Select Event Type
+
+Event_category: Inspect Cages
+Inspection_start_time: 
+Inspection_end_time: 
+Date: January 17, 2022
+Time_recorded: 14:13:25
+Cages_Inspected:  Cage 1, Cage 2, Cage 3, Cage 4, Cage 5, Cage 6, Cage 7, Cage 8, Cage 9, Cage 10, Cage 11, Cage 12
+
+Cage_number: 1
+Animal_ID: Select Animal By ID
+Event_category: Animal Event
+Duration: 12
+Date: 20.01.2022
+Weight: 6
+Length: 7
+Dosage: 9
+Description: jbylhggbg
+Type: Oral dose
+
+Cage_number: 5
+Event_category: Cage Event
+Duration: 8
+Date: 20.01.2022
+Description: jbgjhb
+Type: Select Event Type
+
+Event_category: Room-Level Event
+Duration: 8
+Date: 20.01.2022
+Description: gjbub
+Type: Noise Alarm
+

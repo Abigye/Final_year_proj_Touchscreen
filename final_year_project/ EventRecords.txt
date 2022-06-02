@@ -1,0 +1,28 @@
+Cage_number: 8
+Event_category: Cage Event
+Duration: 
+Date: 11.01.2022
+Description: 
+Type: Cage clean
+
+Cage_number: 11
+Event_category: Cage Event
+Duration: 
+Date: 11.01.2022
+Description: 
+Type: Cage Move
+
+Cage_number: 8
+Event_category: Cage Event
+Duration: 
+Date: 11.01.2022
+Description: 
+Type: Cage Move
+
+Cage_number: 8
+Event_category: Cage Event
+Duration: 8
+Date: 11.01.2022
+Description: 11
+Type: Cage clean
+

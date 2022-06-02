@@ -1,0 +1,611 @@
+#:kivy 2.0.0 
+
+# main interface (very important)
+# WelcomePage:
+# CanvasExample7:
+# WidgetsExample:
+ScrollViewExample:
+
+#:set s dp(150)
+
+# WindowManager:
+#     WelcomePage: 
+#     FirstPage:
+#     FirstWindow:
+#     SecondWindow:
+#     ByePage:
+#     # ThirdWindow:
+#     # FourthWindow:
+#     # FifthWindow: 
+
+<ByePage>:
+    name: "bye" 
+    BoxLayout: 
+        canvas.before:
+            Rectangle:
+                size: self.size
+                source: "images/photo-1585314062604-1a357de8b000.jpeg"
+    Label:
+        text: "THANK YOU!"
+        font_name: "fonts/Lcd.ttf"
+        font_size: "100dp"
+        color: 1,1,1,0.5
+        pos_hint: {'center_x':.5, 'center_y': 0.5} 
+
+
+<WelcomePage>:
+    name: "welcome"
+    BoxLayout: 
+        canvas.before:
+            Rectangle:
+                size: self.size
+                source: "images/bg1.jpg"
+    
+    Label:
+        text: "WELCOME!"
+        font_name: "fonts/Lcd.ttf"
+        font_size: "100dp"
+        color: 0,1,1,1
+        pos_hint: {'center_x':.3, 'center_y': 0.55} 
+      
+    Button:
+        text: 'Next'
+        size_hint: .1, .08
+        pos_hint: {'x':.3, 'y': 0.3} 
+        background_color: (1.0, 0.0, 1.0, 1.0)
+        on_release: 
+            app.root.current = "firstpage"
+            root.manager.transition.direction = "left"
+    
+       
+<FirstPage>:
+    name: "firstpage"
+    BoxLayout: 
+        canvas.before:
+            Rectangle:
+                size: self.size
+                source: "images/photo-1585314062604-1a357de8b000.jpeg"
+      
+    Button:
+        text: 'Record Event for a Cage'
+        size_hint: .6, .1
+        pos_hint: {'x':.2, 'y': 0.5} 
+        # background_color: (1.0, 0.0, 1.0, 1.0)
+        on_release: 
+            app.root.current = "main"
+            root.manager.transition.direction = "left"
+    
+    Button:
+        text: 'Record Global Room Level Event'
+        size_hint: .6, .1
+        pos_hint: {'x':.2, 'y': 0.4} 
+        # background_color: (1.0, 0.0, 1.0, 1.0)
+        on_release: 
+            app.root.current = "second"
+            root.manager.transition.direction = "left"
+    
+    Button:
+        text: 'View Specific Cage'
+        size_hint: .6, .1
+        pos_hint: {'x':.2, 'y': 0.6} 
+        # background_color: (1.0, 0.0, 1.0, 1.0)
+        on_release: 
+            app.root.current = "main"
+            root.manager.transition.direction = "left"
+
+
+<PopupExample>:
+    Label:
+        text:'You pressed me'
+        size_hint: 0.6, 0.2
+        pos_hint: {"x":0.2, "top": 1}
+
+    Button:
+        text:'You pressed me'
+        size_hint: 0.8, 0.2
+        pos_hint: {"x":0.1, "y": 0.1}
+
+
+<FirstWindow>:
+    name: "main"
+    GridLayout:
+        cols: 3
+        Button: 
+            text: "1"
+            on_release: 
+                app.root.current = "second"
+                root.manager.transition.direction = "left"
+        Button: 
+            text: "2"
+            on_release: 
+                app.root.current = "second"
+                root.manager.transition.direction = "left"
+        Button: 
+            text: "3"
+            on_release: 
+                app.root.current = "second"
+                root.manager.transition.direction = "left"
+        Button: 
+            text: "4"
+            on_release: 
+                app.root.current = "second"
+                root.manager.transition.direction = "left"
+        Button: 
+            text: "5"
+            on_release: 
+                app.root.current = "second"
+                root.manager.transition.direction = "left"
+        Button: 
+            text: "6"
+            on_release: 
+                app.root.current = "second"
+                root.manager.transition.direction = "left"
+        Button: 
+            text: "7"
+            on_release: 
+                app.root.current = "second"
+                root.manager.transition.direction = "left"
+        Button: 
+            text: "8"
+            on_release: 
+                app.root.current = "second"
+                root.manager.transition.direction = "left"
+        Button: 
+            text: "9"
+            on_release: 
+                app.root.current = "second"
+                root.manager.transition.direction = "left"
+        Button: 
+            text: "10"
+            on_release: 
+                app.root.current = "second"
+                root.manager.transition.direction = "left"
+        Button: 
+            text: "11"
+            on_release: 
+                app.root.current = "second"
+                root.manager.transition.direction = "left"
+        Button: 
+            text: "12"
+            on_release: 
+                app.root.current = "second"
+                root.manager.transition.direction = "left"
+    
+
+    
+    
+
+    # GridLayout:
+    #     cols: 1
+         
+    #     GridLayout:
+    #         cols: 2
+
+    #         Label: 
+    #             text: "Password: "
+                
+    #         TextInput:
+    #             id:passw
+    #             multiline: False
+        
+    #     Button:
+    #         text:"Submit"
+    #         on_release: 
+    #             app.root.current = "second" if passw.text == "Abbie" else "welcome" 
+    #             root.manager.transition.direction = "left"
+        
+    #     Button: 
+    #         text: "Previous"
+    #         on_release: 
+    #             app.root.current = "firstpage"
+    #             root.manager.transition.direction = "right"
+
+<SecondWindow>:
+    name: "second"
+
+    GridLayout:
+        rows: 2 
+        BoxLayout:
+            Label:
+                text: "form will be worked on soon!"
+                color: 0,1,1,1
+            
+            
+
+        BoxLayout:
+            # orientation:'vertical'
+            size_hint: 0.1,0.1
+            GridLayout:
+                cols: 2
+                Button: 
+                    text: "Next"
+                    # pos: 100, 0
+                    on_release: 
+                        app.root.current = "bye"
+                        root.manager.transition.direction = "left"
+                Button: 
+                    text: "Previous"
+                    # pos: 100, 0
+                    on_release: 
+                        app.root.current = "main"
+                        root.manager.transition.direction = "right"
+
+<ThirdWindow>:
+    name: "third"
+    GridLayoutExample:
+        Button: 
+            text: "Previous"
+            on_release: 
+                app.root.current = "second"
+                root.manager.transition.direction = "right"
+        
+        Button: 
+            text: "Next"
+            on_release: 
+                app.root.current = "fourth"
+                root.manager.transition.direction = "left"
+
+<FourthWindow>:
+    name:"fourth"
+    WidgetsExample:
+        Button: 
+            text: "Previous"
+            on_release: 
+                app.root.current = "third"
+                root.manager.transition.direction = "right"
+        
+        Button: 
+            text: "Next"
+            on_release: 
+                app.root.current = "fifth"
+                root.manager.transition.direction = "left"
+
+<FifthWindow>:
+    name:"fifth"
+    CanvasExample7:
+        Button: 
+            text: "Previous"
+            on_release: 
+                app.root.current = "fourth"
+                root.manager.transition.direction = "right"
+
+        
+        Button: 
+            text: "Back to 1"
+            on_release: 
+                app.root.current = "welcome"
+                root.manager.transition.direction = "left"
+
+<CanvasExample7>:
+    BoxLayout:
+        size: root.size # size of CanvasExample6
+        Widget:
+            canvas:
+                Color:
+                    rgba: 1,0,0,1
+                Rectangle:
+                    size: self.size #size of Widget
+        RelativeLayout:
+            canvas:
+                Color:
+                    rgba: 1,1,0,1
+                Rectangle:
+                    size: self.size #size of Widget
+
+        RelativeLayout:
+            canvas:
+                Color:
+                    rgba: 0,1,0,1
+                Rectangle:
+                    size: self.size #size of Widget
+
+
+<CanvasExample6>:
+    BoxLayout:
+        size: root.size #size of CanvasExample6
+        Widget:
+            canvas:
+                Color:
+                    rgba: 0,1,0,0.4
+                Rectangle:
+                    size: self.size #size of Widget
+
+        # Widget:
+        #     canvas:
+        #         Color:
+        #             rgba: 0,0,1,0.4
+        #         Rectangle:
+        #             size: self.size #size of Widget
+        #             pos: self.pos
+        RelativeLayout:
+            canvas:
+                Color:
+                    rgba: 0,0,1,0.4
+                Rectangle:
+                    size: self.size #size of Widget
+                  
+    # Button:
+    #     canvas.before:
+    #         Rectangle: 
+
+    #     text:'A'
+    #     pos: 100,100
+
+    # RelativeLayout:
+    #     canvas:
+    #         Rectangle: 
+    #     pos: 100,100
+
+<CanvasExample5>:
+
+<CanvasExample4>:
+    Button:
+        pos: 100, 400
+        text: "A"
+        on_press: root.on_click_button_a()
+
+
+<CanvasExample3>:
+    canvas:
+        Color:
+            rgba: 1, 0, 0 ,1
+        Line: 
+            circle: (200,200, 100) # centre_x, centre_y, radius
+            width: 2
+        Color:
+            rgba: 0, 1, 0 ,1
+        Line: 
+            ellipse: (500,400, 100, 200) # centre_x, centre_y, radius_x, radius_y
+            width: 2
+        Color:
+            rgba: 1, 1, 0 ,1
+        Line: 
+            rectangle: (400,100, 300, 200) # x, y, w, h
+            width: 2
+
+<CanvasExample2>:
+    canvas:
+        Line: 
+            points: (self.width/2, self.height, self.width/2,0)
+            width: 2
+        Line: 
+            points: (0, self.height/2,self.width, self.height/2)
+            width: 2
+
+<CanvasExample1>:
+    canvas:
+        Rectangle:
+            # pos: dp(100), dp(200)
+            pos: self.center_x-s/2, self.center_y-s/2
+            size: s ,s 
+        Ellipse:
+            pos: self.center_x - 2*s, self.center_y-s/4 #200,500
+            size: s, s/2 
+        Line:
+            points: (0, 0, self.width/4, 100, self.width/2, 0, 3*self.width/4, 100, self.width, 0)
+            width: 2 # line thicker 
+
+
+
+
+<ImageExample@GridLayout>:
+    cols: 3
+    Image:
+        source: "images/cake.jpg"
+    Image:
+        source: "images/cake.jpg"
+        allow_stretch: True
+    Image:
+        source: "images/cake.jpg"
+        allow_stretch: True
+        keep_ratio: False 
+    
+<WidgetsExample>:
+    cols: 3
+    ToggleButton:
+        text:'OFF'
+        on_state: root.on_toggle_button_state(self)
+        size_hint: None, 1
+        width: "100dp"
+    Button:
+        text:'Count'
+        on_press: root.on_click_left_button()
+        disabled: not root.count_enabled
+    Label:
+        text: root.my_text
+        font_name: "fonts/Lcd.ttf"
+        font_size: "80dp"
+        color: 0,1,1,1
+    Switch:
+        id: my_switch
+        text:'text'
+        size_hint: None, 1
+        width: "100dp"
+        on_active: root.on_switch_active(self)
+        active: True
+    Slider:
+        id: my_slider
+        min:0
+        max:100
+        value:50
+        # on_value: root.on_slider_value(self)
+        orientation:"vertical"
+        disabled: not my_switch.active
+    BoxLayout:
+        orientation: "vertical"
+        Label:
+            # text: root.slider_value_txt
+            text: str(int(my_slider.value))
+        ProgressBar:
+            max:100
+            value:int(my_slider.value)  
+    TextInput:
+        id: my_text_input
+        size_hint: None, 1
+        width: "100dp"
+        text: "foo"
+        multiline: False
+        on_text_validate: root.on_text_validate(self)
+    Label:
+        text: "Your name is: "  + root.text_input_str
+        color: 0,1,1,1
+
+    Button:
+        text:'Press me'
+        on_release: root.btn()
+    # Button:
+    #     text: "Hey"
+    #     color: 0, 0 , 1, 1
+    #     on_press: root.on_click_right_button()
+    
+
+
+
+<PageLayoutExample@PageLayout>:
+    MainWidget:
+    BoxLayoutExample:
+    AnchorLayoutExample:
+    GridLayoutExample:
+
+
+<ScrollViewExample@ScrollView>:
+    StackLayoutExample:
+        size_hint: 1, None
+        height: self.minimum_height
+
+
+<StackLayoutExample>:
+    # left-right, top-bottom
+    # orientation:"rl-tb"
+    # padding: ("20dp", "20dp","20dp","20dp")
+    # spacing: ("20dp", "20dp")
+
+    # Button:
+    #     text:'One'
+    #     size_hint: .2, .2
+    # Button:
+    #     text:'Two'
+    #     size_hint: .2, .2
+    # Button:
+    #     text:'Three'
+    #     size_hint: .2, .2
+    # Button:
+    #     text:'Four'
+    #     size_hint: .2, .2
+    # Button:
+    #     text:'Five'
+    #     size_hint: .2, .2
+    # Button:
+    #     text:'Six'
+    #     size_hint: .2, .2
+    # Button:
+    #     text:'Seven'
+    #     size_hint: .2, .2
+
+
+<GridLayoutExample@GridLayout>:
+    # rows , cols 
+    cols: 3
+    Button:
+        text:'1'
+    # Button:
+    #     text:'2'
+    BoxLayoutExample:
+    Button:
+        text:'3'
+    Button:
+        text:'4'
+    Button:
+        text:'5'
+    Button:
+        text:'6'
+
+
+
+<AnchorLayoutExample>:
+    # right , left, center
+    anchor_x: 'center'
+    # bottom, top, center 
+    anchor_y: 'top'
+    BoxLayout:
+        orientation:'vertical'
+        size_hint: .2, .2
+        Button:
+            text:'text'
+            # size_hint: .2, .2
+        Button:
+            text:'text_1'
+            # size_hint: .1, .1
+
+
+
+<BoxLayoutExample>:
+    orientation: "horizontal"
+    Button:
+        text: 'A'
+        # size_hint: 1, .5
+        # size_hint: .5, None
+        # size: "180dp", "60dp"
+        # width: "180dp"
+        # height: "60dp"
+        # x ,center_x, right use one at a time
+        # y, center_y, top 
+        # pos_hint: {"x": .5}
+    BoxLayout:
+        orientation: "vertical"
+        spacing: "10dp"
+        Button:
+            text: 'B1'
+        Button:
+            text: 'B2'
+        Button:
+            text: 'B3'
+        Button:
+            text: 'B4'
+    Button:
+        text: 'C'
+
+<ActionBarExample>:
+    ActionBar:
+        pos_hint: {'top':1}
+        # ActionView:
+        #     use_separator: True
+        #     ActionPrevious:
+        #         title: 'Example App'
+        #         with_previous: False
+        #     ActionButton:
+        #         text: 'File'
+        #     ActionButton:
+        #         text: 'Edit'
+        #     ActionGroup:
+        #         text: 'Tools' 
+        #         mode: 'spinner'
+        #         ActionButton:
+        #             text: 'Tool1'
+        #         ActionButton:
+        #             text: 'Tool2'
+        #         ActionButton:
+        #             text: 'Tool3'
+        #         ActionButton:
+        #             text: 'Tool4'
+
+<MainWidget>:
+    Button:
+        text: "Heya"
+        size: "40dp", "40dp"
+        pos: "200dp", "200dp" 
+
+    Button:
+        text: "Hey"
+        size: "100dp", "50dp"
+        pos: "100dp", "200dp" 
+        color: 0, 1, 0, 1
+    
+    Label:
+        text:'Hello'
+        size: "100dp", "50dp"
+        pos: "200dp","400dp"
+        color: 1, 0, 0, 1
+
+
+

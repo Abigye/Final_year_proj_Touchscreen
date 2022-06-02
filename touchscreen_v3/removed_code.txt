@@ -1,0 +1,536 @@
+<EventCategoryWindow>:
+    name: "eventgrid"
+    BoxLayout:
+        canvas.before:
+            Color:
+                rgba: 0, 0, 0 ,1
+            Rectangle:
+                size: self.size
+                pos: self.pos
+    GridLayout:
+        rows: 3
+        spacing: 1.5
+        BoxLayout:
+            canvas.before:
+                Color:
+                    rgba: 1, 0, 1 ,0.4
+                Rectangle:
+                    size: self.size
+                    pos: self.pos
+
+            orientation: 'horizontal'
+            size_hint: 1, None
+            pos_hint: {'top': 1}
+            height: 44
+
+            Label:
+                height: 24
+                text_size: self.width, None
+                text: '   Date: ' + root.my_text
+
+            Label:
+                height: 24
+                text_size: self.width, None
+                text: '  Time: ' + root.my_text_2
+        
+
+        BoxLayout: 
+            orientation:'horizontal'
+            canvas:
+                Rectangle:
+                    size: self.size
+                    source: "Templates/images/black.jpg"
+            GridLayout:
+                cols: 3
+                BoxLayout:
+                    orientation:'vertical'
+                GridLayout:
+                    rows: 7
+                    BoxLayout:
+                        orientation:'horizontal'
+                    Button:
+                        id:event_cat_btn
+                        text: 'Record Animal Event'
+                        background_color:1, 0, 1 ,0.5
+                        # on_press: root.get_event_category(self.text)
+                        on_release: 
+                            root.manager.my_global = " ".join(self.text.split()[1:])
+                            app.root.current = "grid"
+                            root.manager.transition.direction = "left"
+            
+                    Button:
+                        id:event_cat_btn_1
+                        text: 'Record Cage Event'
+                        background_color:1, 0, 1 ,0.5
+                        # on_press: root.get_event_category(self.text)
+                        on_release: 
+                            root.manager.my_global = " ".join(self.text.split()[1:])
+                            app.root.current = "grid2"
+                            root.manager.transition.direction = "left"
+                    
+                    Button:
+                        id:event_cat_btn_2
+                        background_color:1, 0, 1 ,0.5
+                        # on_press: root.get_event_category(self.text)
+                        text: 'Record Room-Level Event'
+                        on_release: 
+                            root.manager.my_global = " ".join(self.text.split()[1:])
+                            app.root.current = "room"
+                            root.manager.transition.direction = "left"
+
+                    Button:
+                        id:event_cat_btn_3
+                        background_color:1, 0, 1 ,0.5
+                        # on_press:root.get_event_category(self.text)
+                        text: 'Inspect Cages'
+                        on_release: 
+                            root.manager.my_global = self.text
+                            app.root.current = "inspect"
+                            root.manager.transition.direction = "left"
+                    Button:
+                        id:event_cat_btn_4
+                        text: 'Add New Event Type'
+                        # on_press: root.get_event_category(self.text)
+                        background_color:1, 0, 1 ,0.5
+                        on_release: 
+                            root.manager.my_global = self.text
+                            app.root.current = "add"
+                            root.manager.transition.direction = "left"
+                                
+                    BoxLayout:
+                        orientation:'horizontal'
+
+                BoxLayout:
+                    orientation:'vertical'
+        RelativeLayout:
+            orientation:'horizontal'
+            cols:2
+            padding: 5
+            size_hint: self.width, None
+            height: 80
+            Button:
+                text: "Go To Home"
+                size_hint: 0.25,0.8
+                background_color:0, 0, 1 ,1
+                pos_hint: {'bottom':1, 'left': 1}
+                on_press: 
+                    root.manager.current="first_screen"
+                    root.manager.transition.direction="right"  
+            BoxLayout:
+                orientation:'horizontal'          
+
+
+
+# class EventCategoryWindow(Screen):
+#     def __init__(self, **kwargs):
+#         super().__init__(**kwargs)
+#         Clock.schedule_interval(self.update_clock, 1)
+
+#     my_text = StringProperty("0")
+#     my_text_2 = StringProperty("0")
+
+#     # datetime object containing current date and time
+#     now = datetime.now()
+#     my_text = now.strftime("%B %d, %Y")
+
+#     category_value = None
+
+
+#     def update_clock(self, *args):
+#         # Called once a second using the kivy.clock module
+#         # Add one second to the current time and display it on the label
+#         self.now = self.now + timedelta(seconds=1)
+#         self.my_text_2 = self.now.strftime("%H:%M:%S")
+
+
+    def get_text(self,a_list):
+        return ", ".join([btn.text for btn in a_list])
+
+    # popup_finish = Popup(
+    #     title="Preview and Save Record",
+    #     size_hint=(None, None),
+    #     size=(400, 400),
+    #     background="Templates/images/black.jpg",
+    # )
+
+    # def onPressFinish(self):
+
+    #     layout = GridLayout(rows=6, padding=10)
+    #     unusedlabel = Label(text="")
+    #     layout.add_widget(unusedlabel)
+
+    #     popupLabel = Label(text="Do you want to edit record before saving?")
+    #     layout.add_widget(popupLabel)
+    #     input_text = Label(text="")
+    #     layout.add_widget(input_text)
+    #     unusedlabel3 = Label(text="")
+    #     unusedlabel2 = Label(text="")
+    #     layout.add_widget(unusedlabel2)
+    #     layout.add_widget(unusedlabel3)
+    #     box = GridLayout(cols=3)
+    #     layout.add_widget(box)
+    #     EditButton = Button(text="Edit")
+    #     box.add_widget(EditButton)
+    #     SaveNewButton = Button(
+    #         text="Save & New", background_color=(1, 0, 1, 1))
+    #     box.add_widget(SaveNewButton)
+    #     SaveExitButton = Button(
+    #         text="Save & Exit", background_color=(0, 1, 0, 1))
+    #     box.add_widget(SaveExitButton)
+    #     self.popup_finish.content = layout
+    #     self.popup_finish.open()
+
+    #     # Attach close button press with popup.dismiss action
+    #     EditButton.bind(on_press=self.popup_finish.dismiss)
+
+    #     SaveNewButton.bind(on_press=self.press)
+    #     SaveNewButton.bind(on_press=self.popup_finish.dismiss)
+    #     SaveNewButton.bind(on_release=self.change_screen_to_eventCat)
+
+    #     SaveExitButton.bind(on_press=self.press)
+    #     SaveExitButton.bind(on_press=self.popup_finish.dismiss)
+    #     SaveExitButton.bind(on_release=self.change_screen_to_welcome)
+
+
+
+           # RelativeLayout:
+                        #     size_hint_x:None
+                        #     width: 180
+                        #     GridLayout:
+                        #         cols: 2
+                        #         Label:
+                        #             text:'Cage 1'
+                        #             font_size: 15
+                        #         CheckBox:
+                        #             id:check_box_1
+                        #             on_active: root.checkbox_click(self,self.active,'Cage 1')
+                        #         Label:
+                        #             text:'Cage 2'
+                        #             font_size: 17
+                        #         CheckBox:
+                        #             id:check_box_2
+                        #             on_active: root.checkbox_click(self,self.active,'Cage 2')
+                        #         Label:
+                        #             text:'Cage 3'
+                        #             font_size: 17
+                        #         CheckBox:
+                        #             id:check_box_3
+                        #             on_active: root.checkbox_click(self,self.active,'Cage 3')
+                        #         Label:
+                        #             text:'Cage 4'
+                        #             font_size: 17
+                        #         CheckBox:
+                        #             id:check_box_4
+                        #             on_active: root.checkbox_click(self,self.active,'Cage 4')
+                        #         Label:
+                        #             text:'Cage 5'
+                        #             font_size: 17
+                        #         CheckBox:
+                        #             id:check_box_5
+                        #             on_active: root.checkbox_click(self,self.active,'Cage 5')
+                        #         Label:
+                        #             text:'Cage 6'
+                        #             font_size: 17
+                        #         CheckBox:
+                        #             id: check_box_6
+                        #             on_active: root.checkbox_click(self,self.active,'Cage 6')
+                        #         Label:
+                        #             text:'Cage 7'
+                        #             font_size: 17
+                        #         CheckBox:
+                        #             id:check_box_7
+                        #             on_active: root.checkbox_click(self,self.active,'Cage 7')
+                        #         Label:
+                        #             text:'Cage 8'
+                        #             font_size: 17
+                        #         CheckBox:
+                        #             id:check_box_8
+                        #             on_active: root.checkbox_click(self,self.active,'Cage 8')
+                        #         Label:
+                        #             text:'Cage 9'
+                        #             font_size: 17
+                        #         CheckBox:
+                        #             id:check_box_9
+                        #             on_active: root.checkbox_click(self,self.active,'Cage 9')
+                        #         Label:
+                        #             text:'Cage 10'
+                        #             font_size: 17
+                        #         CheckBox:
+                        #             id:check_box_10
+                        #             on_active: root.checkbox_click(self,self.active,'Cage 10')
+                        #         Label:
+                        #             text:'Cage 11'
+                        #             font_size: 17
+                        #         CheckBox:
+                        #             id: check_box_11
+                        #             on_active: root.checkbox_click(self,self.active,'Cage 11')
+                        #         Label:
+                        #             text:'Cage 12'
+                        #             font_size: 17
+                        #         CheckBox:
+                        #             id:check_box_12
+                        #             on_active: root.checkbox_click(self,self.active,'Cage 12')
+
+
+
+          # list_of_cage_ids = [self.ids.check_box_1, self.ids.check_box_2, self.ids.check_box_3, self.ids.check_box_4,
+        #                     self.ids.check_box_5, self.ids.check_box_6, self.ids.check_box_7, self.ids.check_box_8,
+        #                     self.ids.check_box_9, self.ids.check_box_10, self.ids.check_box_11, self.ids.check_box_12]
+
+        # return list_of_cage_ids
+
+
+
+        confirm_dialog = Popup(
+        title="Cage Inspection Confirmation",
+        size_hint=(None, None),
+        size=(400, 400),
+        background="Templates/images/black.jpg",
+    )
+
+    inputted_time = None
+    end_time = None
+
+    def confirmation_dialog_box(self):
+        con_layout = GridLayout(rows=5, padding=10)
+        con_layout.add_widget(
+            Label(text="Confirm the cages have been inspected"))
+        con_layout.add_widget(Label(text=""))
+
+        sec_layout = GridLayout(cols=2)
+        sec_layout.add_widget(Label(text="Inspection Start Time"))
+        self.inputted_time = TextInput(text="", hint_text="9:16")
+        sec_layout.add_widget(self.inputted_time)
+        sec_layout.add_widget(Label(text="Inspection End Time"))
+        self.end_time = TextInput(text="", hint_text="e.g 21:00")
+        sec_layout.add_widget(self.end_time)
+
+        con_layout.add_widget(sec_layout)
+        con_layout.add_widget(Label(text=""))
+
+        con_box = GridLayout(cols=3)
+        con_layout.add_widget(con_box)
+        YesButton = Button(text="Yes", background_color=(0, 1, 0, 1))
+        con_box.add_widget(YesButton)
+        NoButton = Button(text="No", background_color=(0, 0, 1, 1))
+        con_box.add_widget(NoButton)
+        CancelButton = Button(text="Cancel")
+        con_box.add_widget(CancelButton)
+        self.confirm_dialog.content = con_layout
+        Clock.schedule_once(self.confirm_dialog.open, 1)
+
+        YesButton.bind(on_press=self.confirm_dialog.dismiss)
+        YesButton.bind(on_press=self.inspection_writing)
+        YesButton.bind(on_release=self.change_screen_to_welcome)
+        YesButton.bind(on_release=self.deselect_selected_cages)
+
+        NoButton.bind(on_press=self.confirm_dialog.dismiss)
+
+        CancelButton.bind(on_press=self.confirm_dialog.dismiss)
+        CancelButton.bind(on_release=self.deselect_selected_cages)
+        CancelButton.bind(on_release=self.change_screen_to_welcome)
+
+    def get_all_checkbox_ids(self):
+        pass
+
+
+        # Button:
+                #     text: "Finish"
+                #     background_color: 0,1,0,1
+                #     pos_hint: {'bottom':1, 'right': 1}
+                #     on_press: root.onPressFinish() 
+        # RelativeLayout:
+        #     padding: 0
+        #     cols:2
+        #     size_hint_y:None
+        #     height: 70
+        #     Button:
+        #         text: "Back"
+        #         size_hint: 0.25, 0.8
+        #         # width: 250
+        #         background_color:0, 0, 1 ,1
+        #         pos_hint: {'bottom':1, 'left': 1}
+        #         on_press: 
+        #             root.manager.current="first_screen"
+        #             root.manager.transition.direction="right"  
+        #     Button:
+        #         text: "Cancel"
+        #         size_hint: 0.25, 0.8
+        #         # width: 250
+        #         pos_hint: {'bottom':1, 'right': 1}
+        #         on_press: 
+        #             root.manager.current="first_screen"
+        #             root.manager.transition.direction="left"  
+
+
+  # RelativeLayout:
+                        #     size_hint_y:None
+                        #     height: 80
+                        #     Button:
+                        #         text: "Back"
+                        #         size_hint: 0.25, 0.8
+                        #         # width: 250
+                        #         background_color:0, 0, 1 ,1
+                        #         pos_hint: {'bottom':1, 'left': 1}
+                        #         on_press: root.deselect_selected_cages(self)
+                        #         on_release:
+                        #             root.manager.current="first_screen"
+                        #             root.manager.transition.direction="right" 
+
+                        #     Button:
+                        #         text: "View cage"
+                        #         size_hint: 0.25, 0.8
+                        #         background_color:0, 0, 1 ,0.6
+                        #         # width: 250
+                        #         pos_hint: {'bottom':1,'right': 0.75}
+                        #         on_press: 
+                        #             root.manager.current="video_to_play"
+                        #             root.manager.transition.direction="left"  
+                        #     Button:
+                        #         text: "Finish"
+                        #         size_hint: 0.25, 0.8
+                        #         background_color:0, 1, 0 ,1
+                        #         # width: 250
+                        #         pos_hint: {'bottom':1,'right':1}
+                        #         on_press: root.confirmation_dialog_box()
+                        #         #     root.manager.transition.direction="left"  
+
+                        #     Button:
+                        #         text: "Cancel"
+                        #         size_hint: 0.25, 0.8
+                        #         # width: 250
+                        #         pos_hint: {'bottom':1, 'right': 0.5}
+                        #         on_press: root.deselect_selected_cages(self)
+                        #         on_release:
+                        #             root.manager.current="first_screen"
+                        #             root.manager.transition.direction="left" 
+
+
+                # Button:
+                #     text: "Finish"
+                #     background_color: 0,1,0,1
+                #     pos_hint: {'bottom':1, 'right': 1}
+                #     on_press: root.onPressFinish() 
+            
+        # RelativeLayout:
+        #     padding: 0
+        #     cols:2
+        #     size_hint_y:None
+        #     height: 70
+        #     Button:
+        #         text: "Back"
+        #         size_hint: 0.25, 0.8
+        #         background_color:0, 0, 1 ,1
+        #         pos_hint: {'bottom':1, 'left': 1}
+        #         on_press: 
+        #             root.manager.current="first_screen"
+        #             root.manager.transition.direction="right"  
+        #     Button:
+        #         text: "Cancel"
+        #         size_hint: 0.25, 0.8
+        #         pos_hint: {'bottom':1, 'right': 1}
+        #         on_press: 
+        #             root.manager.current="first_screen"
+        #             root.manager.transition.direction="left"  
+
+
+ # def stop(self):
+
+    #     if self.ids.play_stop_btn.text == "Play":
+    #         self.playPause()
+
+    #     else:
+    #         self.ids.play_stop_btn.text = "Play"
+    #         self.ids.play_stop_btn.background_color = (0, 0, 1, 1)
+    #         # cv2.waitKey(1)
+    #         self.capture.release()
+    #         self.ids.image_source.reload()
+
+
+
+         # def play_video(self,*args):
+
+    #     video_1 = 'Templates/videos/climbing_clip.mp4'
+    #     video_2 = 'Templates/videos/discrepancy.mp4'
+    #     self.video_3 = 'Templates/videos/fvb.m4v'
+    #     self.video_4 = 'Templates/videos/1525954220383_000000_2180510rig14354891.mp4'
+
+    #     id_1 = self.ids.image_source
+    #     id_2 = self.ids.images_source_1
+
+    #     self.recv(video_1,id_1)
+    #     self.recv(video_2,id_2)
+        # Clock.schedule_interval(
+        #     recv(self.video_3,self.ids.image_source_2), 1.0/30.0)
+        # Clock.schedule_interval(recv(self.video_4,self.ids.image_source_3), 1.0/30.0)
+
+
+
+
+           
+    # room_level_types = ['Room clean', 'Noise Alarm', 'Fallen Object']
+
+    # def select_room_level_type(self):
+    #     pop_layout = GridLayout(cols=1)
+    #     box = GridLayout(cols=1, spacing=4, padding=5, size_hint_y=None)
+    #     box.bind(minimum_height=box.setter('height'))
+
+    #     for i in self.room_level_types:
+    #         btn1 = Button(text=i, size_hint_x=0.2, size_hint_y=None, height=50)
+
+    #         box.add_widget(btn1)
+    #         btn1.bind(on_press=self.callback)
+    #         btn1.bind(on_release=self.popup_type.dismiss)
+
+    #     scroll = ScrollView(do_scroll_x=False, do_scroll_y=True,
+    #                         size_hint=(None, None), size=(300, 200))
+    #     scroll.add_widget(box)
+    #     pop_layout.add_widget(scroll)
+    #     self.popup_type.content = pop_layout
+    #     self.popup_type.open()
+
+
+               # Clock.schedule_once(lambda dt: play_video(random.choice(self.videos), image_id.source),1.0/30.0)
+
+
+
+# if getattr(sys, 'frozen', False):
+#     # this is a Pyinstaller bundle
+#     resource_add_path(sys._MEIPASS)
+#     resource_add_path(os.path.join(sys._MEIPASS, './Templates/'))
+
+# # Translate asset paths to useable format for PyInstaller
+
+
+# def resource_path(relative_path):
+#   if hasattr(sys, '_MEIPASS'):
+#       return os.path.join(sys._MEIPASS, relative_path)
+#   return os.path.join(os.path.abspath('.'), relative_path)
+
+
+               # # #plays video 
+# def play_video(self, vid, image_id):
+#     capture = cv2.videoCapture(vid)
+#     ret, frame = capture.read()
+#     if ret:
+#         #flip upside down
+#         buf = cv2.flip(frame, 0)
+#         image_texture = Texture.create(
+#             size=(frame.shape[1], frame.shape[0]), colorfmt='bgr')
+#         image_texture.blit_buffer(
+#             buf.tostring(), colorfmt='bgr', bufferfmt='ubyte')
+#         video = image_id
+#         video.texture = image_texture
+#     else:
+#         # replaying video
+#         self.video.set(cv2.CAP_PROP_POS_FRAMES, 0)
+#     pass
+
+
+# def get_animal_ids_from_file():
+#     filename = "1625134431020_000000_R62G35wcage1_0000000000000.hdf5"
+#     df = pd.DataFrame(np.array(h5py.File(filename)['subjects']))
+#     df.columns = ['animal_ids']
+
+
+#     return df['animal_ids'].values.tolist()

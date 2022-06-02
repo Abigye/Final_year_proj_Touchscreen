@@ -1,0 +1,290 @@
+        BoxLayout:
+            orientation: "vertical"
+            # orientation: 'horizontal'
+            # size_hint: 1, None
+            # # pos_hint: {'top': 1}
+            # height: 300
+
+            GridLayout:
+                cols: 3
+                # Label:
+                #     text:''
+                # Label:
+                #     text:''
+                # size: root.width * 0.9, root.height * 0.9
+                # # row_default_height: 30
+                # row_force_default: True
+                # center: root.width / 2, root.height / 2
+
+
+    # def settingProcess(self):
+    #     try:
+    #         self.ipAddress = self.st.text
+    #         self.port = int(self.pt.text)
+    #     except:
+    #         pass
+    #     self.popup.dismiss()
+
+
+class TimeScheduler(Popup):
+ 
+    timespen = ObjectProperty()
+
+    def dismiss_popup_1(self):
+        self.dismiss()
+
+    def return_home_screen(self):
+        pass
+
+    def get_time_to_spend(self):
+        if self.timespen.text.isnumeric():
+            print("true")
+        else:
+            print("false")
+
+        print(self.timespen.text)
+
+
+
+Just open the address instead of your cam :
+
+myrtmp_addr = "rtmp://myip:1935/myapp/mystream"
+cap = cv2.VideoCapture(myrtmp_addr)
+frame,err = cap.read()
+
+From there you can handle your frames like when you get it from your cam. if it still doesn't work, check if you have a valid version of ffmpeg linked with your opencv. You can check it with print(cv2.getBuildInformation())
+
+Hope I could help
+
+ # Instantiate the modal popup and display
+        # self.popup = Popup(title ='How much time do you expect to spend in the lab?',
+        #               content = layout,size_hint=(None,None), size=(400,400),background ="images/black.jpg")  
+
+# time_to = None
+    # def check_time(self):
+    #     self.time_to = int(self.input_text.text)
+    #     print("great"+ str(self.time_to))
+    #     pass 
+
+
+ 
+
+
+    # def show_popup_2(self):
+    #    time_scheduler = Factory.TimeScheduler()
+    #    time_scheduler.open()
+    #    self.time_spent = time_scheduler.timespen.text
+    # timespen.text
+    # print("good working: ")
+
+
+
+
+    # <TimeScheduler>:
+#     title: 'Set number of minutes to expected to spend in the lab'
+#     size_hint: (None, None)
+#     size: (400, 400)
+#     auto_dismiss:False
+#     timespen:timespen
+
+#     GridLayout:
+#         rows:6
+#         Label:
+#             text: ''
+#         Label:
+#             id: text_label
+#             text: 'How much time do you expect to spend in the lab?'
+#             font_size:16
+#         TextInput:
+#             id: timespen
+#             text:''
+#             multiline: False        # disable multiline
+#             hint_text: "Enter numbers only"    # Numbers only
+#         Label:
+#             text: 'The interface will return to welcome page after 20 mins on\nclicking "Skip"'
+#             font_size : 12
+#         Label:
+#             text: ''
+#         GridLayout:
+#             cols:2
+#             Button:
+#                 text:'Okay'
+#                 size_hint: .5, .01
+#                 pos_hint:{'bottom':1, 'right': 1}
+#                 on_press: root.get_time_to_spend()
+#                 on_release: 
+#                     root.dismiss_popup_1()
+#                     app.sm.current = "eventgrid"
+#                     app.sm.transition.direction = "left"
+#             Button:
+#                 text: 'Skip'
+#                 size_hint: .5, .01
+#                 pos_hint:{'bottom':1, 'right': 1} 
+#                 # on_press: root.saving_file(app.sm.my_global)
+#                 on_release: 
+#                     root.dismiss_popup_1()
+#                     app.sm.current = "eventgrid"
+#                     app.sm.transition.direction = "left"
+#                 # background_color: (1.0, 0.0, 1.0, 1.0)
+
+
+
+# <VideoEx>:
+#     name: "video"
+#     GridLayout:
+#         rows: 3
+#         spacing: 1.5
+#         BoxLayout:
+#             canvas.before:
+#                 Color:
+#                     rgba: 1, 0, 1 ,0.4
+#                 Rectangle:
+#                     size: self.size
+#                     pos: self.pos
+
+#             orientation: 'horizontal'
+#             size_hint: 1, None
+#             pos_hint: {'top': 1}
+#             height: 44
+
+#             Label:
+#                 height: 24
+#                 text_size: self.width, None
+#                 text: '   Date: ' +  root.my_text
+
+#             Label:
+#                 height: 24
+#                 text_size: self.width, None
+#                 text: '   Time: ' + root.my_text_2
+#         BoxLayout:
+#             orientation: "vertical"
+#             VideoPlayer:
+#                 # source: 'rtmp://127.0.0.1/enclosure/live'
+#                 source:'https://www.youtube.com/watch?v=EupAeyL8zAo&ab_channel=ErikSandberg'
+#                 state: 'play'
+#                 options: {'eos':'loop'}
+#                 allow_stretch: True 
+
+#         BoxLayout:
+#             orientation: 'horizontal'
+#             size_hint: 1, None
+#             height: 70
+#             GridLayout:
+#                 cols: 2
+#                 Button: 
+#                     text: 'Back'
+#                     pos_hint: {'bottom':1, 'left': 1} 
+#                     # on_release: 
+#                     #     app.root.current = "eventgrid"
+#                     #     root.manager.transition.direction = "right"
+#                 Button: 
+#                     text: 'Close'
+#                     pos_hint: {'bottom':1, 'right': 1} 
+#                     # on_release: 
+#                     #     app.root.current = "welcome"
+#                     #     root.manager.transition.direction = "right"
+#                     # # on_press: root.show_popup_1()
+
+
+
+
+class WindowManager(ScreenManager):
+    # sm = ScreenManager()
+    # sm.add_widget(WelcomePage(name="welcome"))
+    # sm.add_widget(EventCategoryWindow(name="eventgrid"))
+    # sm.add_widget(Inspection(name="inspect"))
+    # sm.add_widget(GridWindow1(name="grid"))
+    # sm.add_widget(GridWindow2(name="grid2"))
+    # sm.add_widget(IndividualAnimalWindow(name="animal"))
+    # sm.add_widget(CageWindow(name="cage"))
+    # sm.add_widget(RoomLevelWindow(name="room"))
+    # sm.add_widget(AddEventWindow(name="add"))
+
+    my_global = StringProperty("")
+    cage_ids = StringProperty("")
+
+
+
+    pass
+
+
+class TouchScreen(App):
+    title = "Record"
+
+    def build(self):
+        self.sm = WindowManager()
+        # sm.add_widget(WelcomePage(name="welcome"))
+        # sm.add_widget(EventCategoryWindow(name="eventgrid"))
+        # sm.add_widget(Inspection(name="inspect"))
+        # sm.add_widget(GridWindow1(name="grid"))
+        # sm.add_widget(GridWindow2(name="grid2"))
+        # sm.add_widget(IndividualAnimalWindow(name="animal"))
+        # sm.add_widget(CageWindow(name="cage"))
+        # sm.add_widget(RoomLevelWindow(name="room"))
+        # sm.add_widget(AddEventWindow(name="add"))
+        return self.sm
+
+this part was from animal_ids in Individual animal class 
+
+ # for i in range(1, 37):
+
+        #     if len(str(i)) == 1:
+        #         btn1 = Button(text="98900102505680" + str(i),
+        #                       size_hint_x=0.2, size_hint_y=None, height=50)
+        #     else:
+        #         btn1 = Button(text="98900102505686" + str(i),
+        #                       size_hint_x=0.2, size_hint_y=None, height=50)
+
+
+
+        # class Pagge(Popup):
+#     def __init__(self, **kwargs):
+#         super(Pagge, self).__init__(**kwargs)
+#         # call dismiss_popup in 1 seconds
+#         Clock.schedule_once(self.dismiss_popup, 1)
+
+#     def dismiss_popup(self, dt):
+#         self.dismiss()
+
+#     def change_label(self, value):
+#         self.ids.text_label.text = value
+
+
+
+
+              # BoxLayout:
+                #     canvas:
+                #         Rectangle:
+                #             id: image_source
+                #             size: self.size
+                #             pos: self.pos
+                #             source: "images/foo.jpg"
+                # RelativeLayout:
+                #     cols: 3
+                #     size_hint_y:None
+                #     height: 70
+                #     Label:
+                #         text:''
+                #         pos_hint: {'bottom':1,'left': 1}
+
+                #     Button:
+                #         id: play_stop_btn
+                #         text: "Play"
+                #         size_hint: 0.25, 1
+                #         background_color:0, 0, 1 ,0.95
+                #         # width: 250
+                #         pos_hint: {'bottom':1,'right':0.75}
+                #         # on_press: root.confirmation_dialog_box()
+                #         #     root.manager.transition.direction="left"  
+                #     Button:
+                #         text: "Setting"
+                #         size_hint: 0.25, 1
+                #         background_color:1, 0, 1 ,0.6
+                #         # width: 250
+                #         pos_hint: {'bottom':1,'right': 0.5}
+                #     Label:
+                #         text:''
+                #         pos_hint: {'bottom':1,'right': 1}
+                #         # on_press: 
+                #         #     root.manager.current="video_to_play"
+                #         #     root.manager.transition.direction="left"

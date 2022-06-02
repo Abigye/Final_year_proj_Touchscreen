@@ -1,0 +1,25 @@
+Cage Number: 5
+Event Category: Cage Event
+Duration: 24
+Date: 09.11.2021
+Description: Cage clean
+Recorded_by: AAA
+Type: Cage clean
+
+
+Cage Number: 5
+Event Category: Cage Event
+Duration: 
+Date: 17.11.2021
+Description: 
+Recorded_by: 
+Type: Select Event Type
+
+Cage Number: 5
+Event Category: Cage Event
+Duration: 
+Date: 08.12.2021
+Description: 
+Recorded_by: 
+Type: Select Event Type
+

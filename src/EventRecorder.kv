@@ -1,0 +1,1287 @@
+#:kivy 2.0.0 
+
+# #main interface 
+<WindowManager>:
+    FirstScreen: 
+    Inspection:
+    VideoEx:
+    GridWindow1:
+    GridWindow2:
+    IndividualAnimalWindow:
+    CageWindow:
+    RoomLevelWindow:
+    AddEventWindow:
+    RecordRackEvent:
+    # ViewRecordedEvents:
+
+
+
+
+<ViewRecordedEvents>:
+<FirstScreen>: 
+    name: "first_screen"
+    GridLayout:
+        rows:3
+        # spacing: 1.5
+        BoxLayout:
+            canvas.before:
+                Color:
+                    rgba: 1, 0, 1 ,0.4
+                Rectangle:
+                    size: self.size
+                    pos: self.pos
+
+            orientation: 'horizontal'
+            size_hint: 1, None
+            pos_hint: {'top': 1}
+            height: 44
+            Label:
+                height: 24
+                text_size: self.width, None
+                text: '   Date: ' + root.my_text
+
+            Label:
+                height: 24
+                text_size: self.width, None
+                text: '  Time: ' + root.my_text_2
+        
+        BoxLayout:
+            GridLayout:
+                cols: 2
+                padding: 5
+                spacing:7
+                BoxLayout:
+                    orientation:'vertical'
+                    Image:
+                        id: image_source
+                        source: 'Templates/images/foo.jpg'
+                        size: self.size
+                BoxLayout:
+                    orientation:'vertical'
+                    Image:
+                        id: image_source_1
+                        source: 'Templates/images/foo.jpg'
+                        size: self.size
+                BoxLayout:
+                    orientation:'vertical'
+                    Image:
+                        id: image_source_2
+                        source:'Templates/images/foo.jpg'
+                        size: self.size
+                BoxLayout:
+                    orientation:'vertical'
+                    Image:
+                        id: image_source_3
+                        source: 'Templates/images/foo.jpg'
+                        size: self.size
+
+        RelativeLayout:
+            size_hint_y:None
+            height: 65
+            GridLayout:
+                padding:5
+                spacing: 2
+                rows: 1
+                Button:
+                    id:event_cat_btn
+                    text: 'Record Animal\nEvent'
+                    background_color:0, 0, 1 ,1
+                    on_release: 
+                        root.manager.my_global = " ".join(self.text.split()[1:])
+                        app.root.current = "grid"
+                        root.manager.transition.direction = "left"
+                
+                Button:
+                    id:event_cat_btn_1
+                    text: 'Record Cage\nEvent'
+                    background_color:0, 0, 1 ,1
+                    on_release: 
+                        root.manager.my_global = " ".join(self.text.split()[1:])
+                        app.root.current = "grid2"
+                        root.manager.transition.direction = "left"
+                Button:
+                    id:event_cat_btn_2
+                    background_color:0, 0, 1 ,1
+                    text: 'Record Room\nLevel Event'
+                    on_release: 
+                        root.manager.my_global = " ".join(self.text.split()[1:])
+                        app.root.current = "room"
+                        root.manager.transition.direction = "left"
+
+                Button:
+                    id:event_cat_btn_3
+                    background_color:0, 0, 1 ,1
+                    text: 'Record Rack \nEvent'
+                    on_release: 
+                        root.manager.my_global = " ".join(self.text.split()[1:])
+                        app.root.current = "inspect"
+                        root.manager.transition.direction = "left"
+                Button:
+                    id:event_cat_btn_4
+                    text: 'Add New\nEvent Type'
+                    background_color:0, 0, 1 ,1
+                    on_release: 
+                        root.manager.my_global = self.text
+                        app.root.current = "add"
+                        root.manager.transition.direction = "left"
+            
+
+<VideoEx>:
+    name: "video_to_play"
+    GridLayout:
+        rows:3
+        # spacing: 1.5
+        BoxLayout:
+            canvas.before:
+                Color:
+                    rgba: 1, 0, 1 ,0.4
+                Rectangle:
+                    size: self.size
+                    pos: self.pos
+
+            orientation: 'horizontal'
+            size_hint: 1, None
+            pos_hint: {'top': 1}
+            height: 44
+            Label:
+                height: 24
+                text_size: self.width, None
+                text: '   Date: ' + root.my_text
+
+            Label:
+                height: 24
+                text_size: self.width, None
+                text: '  Time: ' + root.my_text_2
+        
+        BoxLayout:
+            GridLayout:
+                rows: 1
+                Image:
+                    id: image_source
+                    source: 'Templates/images/foo.jpg' 
+                    size: self.size
+         
+        RelativeLayout:
+            cols:4
+            size_hint_y:None
+            height: 70
+            spacing: 30
+            Button:
+                text: "Back"
+                size_hint: 0.25, 1
+                # width: 250
+                background_color:0, 0, 1 ,1
+                pos_hint: {'bottom':1, 'left': 1}
+                on_press: root.manager.current="inspect"
+         
+
+            Button:
+                text: "Setting"
+                size_hint: 0.25, 1
+                background_color:1, 0, 1 ,0.6
+                # width: 250
+                pos_hint: {'bottom':1,'right': 0.75}
+                on_press: root.setting_btn()
+                  
+            Button:
+                id: play_stop_btn
+                text: "Play"
+                size_hint: 0.25, 1
+                background_color:0, 0, 1 ,1
+                pos_hint: {'bottom':1,'right':0.5}
+                on_press: root.playPause()
+                 
+
+            Button:
+                text: "Close"
+                size_hint: 0.25, 1
+                background_color:0, 0, 1 ,0.95
+                pos_hint: {'bottom':1, 'right': 1}
+                on_press: root.manager.current="first_screen"
+                
+<Inspection>:
+    name: "inspect"
+    output_label: output_label
+    GridLayout:
+        rows: 2
+        spacing: 1.5
+        BoxLayout:
+            canvas.before:
+                Color:
+                    rgba: 1, 0, 1 ,0.4
+                Rectangle:
+                    size: self.size
+                    pos: self.pos
+            spacing: 1.5
+            orientation: 'horizontal'
+            size_hint: 1, None
+            pos_hint: {'top': 1}
+            height: 44
+            Label:
+                height: 24
+                text_size: self.width, None
+                text: '   Date: ' + root.my_text
+            Label:
+                height: 24
+                text_size: self.width, None
+                text: '  Time: ' + root.my_text_2
+        BoxLayout:
+            canvas.before:
+                Color:
+                    rgba: 0, 0, 0 ,1
+                Rectangle:
+                    size: self.size
+            GridLayout:
+                rows: 4
+                RelativeLayout: 
+                    orientation: 'horizontal'
+                    size_hint: 1, None
+                    height: 65
+                    GridLayout:
+                        rows:1
+                        padding:5
+                        spacing: 2
+                        Label:
+                            text:'Select Cages Inspected From Rack'
+                            font_size: 20
+                        Button:
+                            id:select_all_btn
+                            text: "Select All"
+                            size_hint: 0.21, 0.8
+                            background_color: 1, 0, 1, 1
+                            pos_hint: {'top':1,'right':0.75}
+                            on_release: 
+                                root.select_all_btns()
+                        Button:
+                            id: view_cage_btn
+                            text: "View cage"
+                            size_hint: 0.21, 0.8
+                            background_color:1, 0,1,1
+                            pos_hint: {'top':1,'right': 1}
+                            on_press: root.changing_color_of_view_cage()
+                GridLayout:
+                    cols: 3
+                    padding: 10
+                    spacing: 3
+                    Button:
+                        id: btn_1
+                        text: 'Cage 1'
+                        on_press: root.multiselecting_btns(btn_1,self.text)
+                        
+                    Button:
+                        id: btn_2
+                        text: 'Cage 2'
+                        on_press: root.multiselecting_btns(btn_2,self.text)
+                    
+                    Button:
+                        id: btn_3
+                        text: 'Cage 3'
+                        on_press: root.multiselecting_btns(btn_3,self.text)
+                        
+                    Button:
+                        id: btn_4
+                        text: 'Cage 4'
+                        on_press: root.multiselecting_btns(btn_4,self.text)
+                    Button:
+                        id: btn_5
+                        text: 'Cage 5'
+                        on_press: root.multiselecting_btns(btn_5,self.text)
+                        
+                    Button:
+                        id: btn_6
+                        text: 'Cage 6'
+                        on_press: root.multiselecting_btns(btn_6,self.text)
+                        
+                    Button:
+                        id: btn_7
+                        text: 'Cage 7'
+                        on_press: root.multiselecting_btns(btn_7,self.text)
+                    
+                    Button:
+                        id: btn_8
+                        text: 'Cage 8'
+                        on_press: root.multiselecting_btns(btn_8,self.text)
+                        
+                    Button:
+                        id: btn_9
+                        text: 'Cage 9'
+                        on_press: root.multiselecting_btns(btn_9,self.text)
+                        
+                    Button:
+                        id: btn_10
+                        text: 'Cage 10'
+                        on_press: root.multiselecting_btns(btn_10,self.text)
+                        
+                    Button:
+                        id: btn_11
+                        text: 'Cage 11'
+                        on_press: root.multiselecting_btns(btn_11,self.text)
+                
+                    Button:
+                        id: btn_12
+                        text: 'Cage 12'
+                        on_press: root.multiselecting_btns(btn_12,self.text)
+                             
+                RelativeLayout:
+                    padding: 10
+                    cols:4
+                    size_hint_y:None
+                    height: 100
+                    GridLayout: 
+                        rows: 2
+                        BoxLayout:
+                            Label:
+                                id: output_label
+                                text:''
+                        RelativeLayout:
+                            size_hint_y:None
+                            height: 65
+                            GridLayout:
+                                padding:5
+                                spacing: 2
+                                rows: 1
+                                Button:
+                                    text: "Back"
+                                    background_color:0, 0, 1 ,1
+                                    pos_hint: {'bottom':1, 'left': 1}
+                                    # on_press: root.deselect_selected_cages(self)
+                                    on_release:
+                                        root.manager.current="first_screen"
+                                        root.manager.transition.direction="right" 
+                                Label:
+                                    text:''
+                                Label:
+                                    text:''
+                                Label:
+                                    text:''
+                                Label:
+                                    text:''
+                                Button:
+                                    text: "Next"
+                                    background_color:0, 1, 0 ,1
+                                    pos_hint: {'bottom':1,'right':1}
+                                    on_press:
+                                        root.display() 
+                                        root.manager.current="rack"
+                                        root.manager.transition.direction="left" 
+                       
+                                    
+<GridWindow1>:
+    name: "grid"
+    BoxLayout:
+        canvas.before:
+            Color:
+                rgba: 0, 0, 0 ,1
+            Rectangle:
+                size: self.size
+                pos: self.pos
+    GridLayout:
+        rows: 3
+        spacing: 1.0
+        BoxLayout:
+            canvas.before:
+                Color:
+                    rgba: 1, 0, 1 ,0.4
+
+                Rectangle:
+                    size: self.size
+                    pos: self.pos
+
+            orientation: 'horizontal'
+            size_hint: 1, None
+            pos_hint: {'top': 1}
+            height: 44
+
+            Label:
+                height: 24
+                text_size: self.width, None
+                text: '   Date: ' + root.my_text
+
+            Label:
+                height: 24
+                text_size: self.width, None
+                text: '   Time: ' + root.my_text_2
+        
+        GridLayout:
+            cols: 3
+            padding: 5
+            spacing: 2
+            Button: 
+                text: "Cage 1"
+                on_release:
+                    root.manager.cage_ids = self.text 
+                    app.root.current = "animal"
+                    root.manager.transition.direction = "left"
+            Button: 
+                text: "Cage 2"
+                on_release:
+                    root.manager.cage_ids = self.text  
+                    app.root.current = "animal"
+                    root.manager.transition.direction = "left"
+            Button: 
+                text: "Cage 3"
+                on_release: 
+                    root.manager.cage_ids = self.text 
+                    app.root.current = "animal"
+                    root.manager.transition.direction = "left"
+            Button: 
+                text: "Cage 4"
+                on_release: 
+                    root.manager.cage_ids = self.text 
+                    app.root.current = "animal"
+                    root.manager.transition.direction = "left"
+            Button: 
+                text: "Cage 5"
+                on_release: 
+                    root.manager.cage_ids = self.text 
+                    app.root.current = "animal"
+                    root.manager.transition.direction = "left"
+            Button: 
+                text: "Cage 6"
+                on_release:
+                    root.manager.cage_ids = self.text  
+                    app.root.current = "animal"
+                    root.manager.transition.direction = "left"
+            Button: 
+                text: "Cage 7"
+                on_release: 
+                    root.manager.cage_ids = self.text 
+                    app.root.current = "animal"
+                    root.manager.transition.direction = "left"
+            Button: 
+                text: "Cage 8"
+                on_release:
+                    root.manager.cage_ids = self.text  
+                    app.root.current = "animal"
+                    root.manager.transition.direction = "left"
+            Button: 
+                text: "Cage 9"
+                on_release:
+                    root.manager.cage_ids = self.text  
+                    app.root.current = "animal"
+                    root.manager.transition.direction = "left"
+            Button: 
+                text: "Cage 10"
+                on_release:
+                    root.manager.cage_ids = self.text  
+                    app.root.current = "animal"
+                    root.manager.transition.direction = "left"
+            Button: 
+                text: "Cage 11"
+                on_release:
+                    root.manager.cage_ids = self.text  
+                    app.root.current = "animal"
+                    root.manager.transition.direction = "left"
+            Button: 
+                text: "Cage 12"
+                on_release: 
+                    root.manager.cage_ids = self.text 
+                    app.root.current = "animal"
+                    root.manager.transition.direction = "left"
+        RelativeLayout:
+            size_hint_y:None
+            height: 65
+            GridLayout:
+                padding:5
+                spacing: 2
+                rows: 1
+                Button:
+                    text: "Back"
+                    background_color:0, 0, 1 ,1
+                    pos_hint: {'bottom':1, 'left': 1}
+                    on_press: 
+                        root.manager.current="first_screen"
+                        root.manager.transition.direction="right"  
+                Label:
+                    text:''
+                Label:
+                    text:''
+                Label:
+                    text:''
+                Label:
+                    text:''
+                Label:
+                    text:''
+
+<GridWindow2>:
+    name: "grid2"
+    BoxLayout:
+        canvas.before:
+            Color:
+                rgba: 0, 0, 0 ,1
+            Rectangle:
+                size: self.size
+                pos: self.pos
+    GridLayout:
+        rows: 3
+        spacing: 1.5
+        BoxLayout:
+            canvas.before:
+                Color:
+                    rgba: 1, 0, 1 ,0.4
+
+                Rectangle:
+                    size: self.size
+                    pos: self.pos
+
+            orientation: 'horizontal'
+            size_hint: 1, None
+            pos_hint: {'top': 1}
+            height: 44
+
+            Label:
+                height: 24
+                text_size: self.width, None
+                text: '   Date: ' + root.my_text
+
+            Label:
+                height: 24
+                text_size: self.width, None
+                text: '   Time: ' + root.my_text_2
+        GridLayout:
+            cols: 3
+            padding: 5
+            spacing: 3
+            Button: 
+                text: "Cage 1"
+                on_release:
+                    root.manager.cage_ids = self.text  
+                    app.root.current = "cage"
+                    root.manager.transition.direction = "left"
+            Button: 
+                text: "Cage 2"
+                on_release: 
+                    root.manager.cage_ids = self.text 
+                    app.root.current = "cage"
+                    root.manager.transition.direction = "left"
+            Button: 
+                text: "Cage 3"
+                on_release:
+                    root.manager.cage_ids = self.text  
+                    app.root.current = "cage"
+                    root.manager.transition.direction = "left"
+            Button: 
+                text: "Cage 4"
+                on_release: 
+                    root.manager.cage_ids = self.text 
+                    app.root.current = "cage"
+                    root.manager.transition.direction = "left"
+            Button: 
+                text: "Cage 5"
+                on_release: 
+                    root.manager.cage_ids = self.text 
+                    app.root.current = "cage"
+                    root.manager.transition.direction = "left"
+            Button: 
+                text: "Cage 6"
+                on_release: 
+                    root.manager.cage_ids = self.text 
+                    app.root.current = "cage"
+                    root.manager.transition.direction = "left"
+            Button: 
+                text: "Cage 7"
+                on_release:
+                    root.manager.cage_ids = self.text  
+                    app.root.current = "cage"
+                    root.manager.transition.direction = "left"
+            Button: 
+                text: "Cage 8"
+                on_release: 
+                    root.manager.cage_ids = self.text 
+                    app.root.current = "cage"
+                    root.manager.transition.direction = "left"
+            Button: 
+                text: "Cage 9"
+                on_release:
+                    root.manager.cage_ids = self.text  
+                    app.root.current = "cage"
+                    root.manager.transition.direction = "left"
+            Button: 
+                text: "Cage 10"
+                on_release:
+                    root.manager.cage_ids = self.text  
+                    app.root.current = "animal"
+                    root.manager.transition.direction = "left"
+            Button: 
+                text: "Cage 11"
+                on_release: 
+                    root.manager.cage_ids = self.text 
+                    app.root.current = "cage"
+                    root.manager.transition.direction = "left"
+            Button: 
+                text: "Cage 12"
+                on_release: 
+                    root.manager.cage_ids = self.text 
+                    app.root.current = "cage"
+                    root.manager.transition.direction = "left"
+        RelativeLayout:
+            size_hint_y:None
+            height: 65
+            GridLayout:
+                padding:5
+                spacing: 2
+                rows: 1
+                Button:
+                    text: "Back"
+                    background_color:0, 0, 1 ,1
+                    pos_hint: {'bottom':1, 'left': 1}
+                    on_press: 
+                        root.manager.current="first_screen"
+                        root.manager.transition.direction="right"  
+                Label:
+                    text:''
+                Label:
+                    text:''
+                Label:
+                    text:''
+                Label:
+                    text:''
+                Label:
+                    text:''
+                
+<IndividualAnimalWindow>:
+    name: "animal"
+    cage_number: cage_number
+    animal_id: animal_id
+    event_category: event_category
+    start_time: start_time
+    end_time: end_time
+    date: date
+    weight: weight
+    dosage: dosage
+    description: description
+    anim_type: anim_type
+    length: length
+
+    BoxLayout:
+        canvas.before:
+            Color:
+                rgba: 0, 0, 0 ,1
+            Rectangle:
+                size: self.size
+                pos: self.pos
+
+    GridLayout:
+        rows: 3
+        spacing: 1.5
+        BoxLayout:
+            canvas.before:
+                Color:
+                    rgba: 1, 0, 1 ,0.4
+                Rectangle:
+                    size: self.size
+                    pos: self.pos
+
+            orientation: 'horizontal'
+            size_hint: 1, None
+            pos_hint: {'top': 1}
+            height: 44
+
+            Label:
+                height: 24
+                text_size: self.width, None
+                text: 'Date: ' + root.my_text
+
+            Label:
+                height: 24
+                text_size: self.width, None
+                text: 'Time: ' + root.my_text_2
+
+        BoxLayout:
+            padding: 3
+            GridLayout:
+                cols: 1
+                size: root.width, root.height
+            
+                GridLayout:
+                    cols: 2
+                    Label:
+                        text:'Cage Number'
+                    TextInput:
+                        id: cage_number
+                        multiline: False
+                        text: root.manager.cage_ids
+                        readonly:True
+                    Label:
+                        text:'Animal ID/name'
+                    Button:
+                        id: animal_id
+                        text: "Select Animal By ID" 
+                        on_press: root.select_id()
+                    Label:
+                        text:'Event Category'
+                    TextInput:
+                        id: event_category
+                        multiline: False
+                        text: root.manager.my_global
+                        readonly:True
+                    Label:
+                        text:'Type'
+                    Spinner:
+                        id: anim_type
+                        size_hint: 0.5,0.1
+                        pos_hint: {'center_x': 0.5, 'center_y': 0.5}
+                        text: "Select Event Type" 
+                        values:['Oral dose', 'Injection', 'Length Measurement', 'Weight Measurement'] 
+                        on_text: root.spinner_clicked(anim_type.text)
+                    Label: 
+                        text:'Start Time'
+                    TextInput:
+                        id: start_time
+                        hint_text: "Type time e.g. 11:30 (24 hour system)"
+                        multiline: False
+                    Label: 
+                        text:'End Time'
+                    TextInput:
+                        id:end_time
+                        hint_text: "Type time e.g. 14:30 (24 hour system)"
+                        multiline: False
+                    Label:
+                        text:'Date'
+                    DatePicker:
+                        pHint: 1,1
+                        size_hint_x: .4
+                        id: date
+                        multiline: False
+                    Label:
+                        text:'Weight'
+                    TextInput:
+                        id: weight
+                        multiline: False
+                        hint_text: "Input numbers only e.g. 50.0 (metric=kilograms)"
+                    Label:
+                        text:'Length'
+                    TextInput:
+                        id: length
+                        multiline: False 
+                        hint_text: "Input numbers only e.g.22.5 (metric=centimeters)"
+                    Label:
+                        text:'Dosage'
+                    TextInput:
+                        id: dosage
+                        multiline: False
+                    Label:
+                        text:'Description'
+                    TextInput:
+                        id: description
+                        multiline: False
+        RelativeLayout:
+            size_hint_y:None
+            height: 65
+            GridLayout:
+                padding:5
+                spacing: 2
+                rows: 1
+                Button:
+                    text: "Back"
+                    background_color:0, 0, 1 ,1
+                    pos_hint: {'bottom':1, 'left': 1}
+                    on_press: 
+                        root.manager.current="grid"
+                        root.manager.transition.direction="right"  
+                Label:
+                    text:''
+                Label:
+                    text:''
+                Label:
+                    text:''
+                Label:
+                    text:''
+                Button:
+                    text: "Finish"
+                    background_color: 0,1,0,1
+                    pos_hint: {'bottom':1, 'right': 1}
+                    on_press: root.onPressFinish() 
+                      
+
+<CageWindow>:
+    name: "cage"
+    cage_number: cage_number
+    event_category: event_category
+    start_time:start_time
+    end_time:end_time
+    date: date
+    description: description
+    cage_type: cage_type
+
+    BoxLayout:
+        canvas.before:
+            Color:
+                rgba: 0, 0, 0 ,1
+            Rectangle:
+                size: self.size
+                pos: self.pos
+
+    GridLayout:
+        rows: 3
+        spacing: 1.5
+        BoxLayout:
+            canvas.before:
+                Color:
+                    rgba: 1, 0, 1 ,0.4
+
+                Rectangle:
+                    size: self.size
+                    pos: self.pos
+
+            orientation: 'horizontal'
+            size_hint: 1, None
+            pos_hint: {'top': 1}
+            height: 44
+
+            Label:
+                height: 24
+                text_size: self.width, None
+                text: '   Date: ' + root.my_text
+
+            Label:
+                height: 24
+                text_size: self.width, None
+                text: '   Time: ' + root.my_text_2
+
+        BoxLayout:
+            padding: 3
+            GridLayout:
+                cols: 1
+                size: root.width, root.height
+                GridLayout:
+                    cols: 2
+                    Label:
+                        text:'Cage Number'
+                    TextInput:
+                        id: cage_number
+                        multiline: False
+                        text: root.manager.cage_ids
+                        readonly:True
+                    Label:
+                        text:'Event Category'
+                    TextInput:
+                        id: event_category
+                        multiline: False
+                        text: root.manager.my_global
+                        readonly:True
+                    Label:
+                        text:'Type'
+                    Spinner:
+                        id: cage_type
+                        size_hint: 0.5,0.1
+                        pos_hint: {'center_x': 0.5, 'center_y': 0.5}
+                        text: "Select Event Type" 
+                        values:['Cage clean', 'Cage Move'] 
+                        on_text: root.spinner_clicked(cage_type.text)
+                    Label: 
+                        text:'Start Time'
+                    TextInput:
+                        id: start_time
+                        hint_text: "Type time e.g. 11:30 (24 hour system)"
+                        multiline: False
+                    Label: 
+                        text:'End Time'
+                    TextInput:
+                        id:end_time
+                        hint_text: "Type time e.g. 14:30 (24 hour system)"
+                        multiline: False
+                    Label:
+                        text:'Date'
+                    DatePicker:
+                        pHint: 1,1
+                        size_hint_x: .4
+                        id: date
+                        multiline: False
+                    Label:
+                        text:'Description'
+                    TextInput:
+                        id: description 
+                        multiline: False 
+        RelativeLayout:
+            size_hint_y:None
+            height: 65
+            GridLayout:
+                padding:5
+                spacing: 2
+                rows: 1
+                Button:
+                    text: "Back"
+                    background_color:0, 0, 1 ,1
+                    pos_hint: {'bottom':1, 'left': 1}
+                    on_press: 
+                        root.manager.current="grid2"
+                        root.manager.transition.direction="right"  
+                Label:
+                    text:''
+                Label:
+                    text:''
+                Label:
+                    text:''
+                Label:
+                    text:''
+                Button:
+                    text: "Finish"
+                    background_color: 0,1,0,1
+                    pos_hint: {'bottom':1, 'right': 1}
+                    on_press: root.onPressFinish() 
+        
+<RoomLevelWindow>:
+    name: "room"
+    event_category: event_category
+    start_time:start_time
+    end_time:end_time
+    date: date
+    description: description
+    room_type: room_type
+
+    BoxLayout:
+        canvas.before:
+            Color:
+                rgba: 0, 0, 0 ,1
+            Rectangle:
+                size: self.size
+                pos: self.pos
+
+    GridLayout:
+        rows: 3
+        spacing: 1.5
+        BoxLayout:
+            canvas.before:
+                Color:
+                    rgba: 1, 0, 1 ,0.4
+                Rectangle:
+                    size: self.size
+                    pos: self.pos
+
+            orientation: 'horizontal'
+            size_hint: 1, None
+            pos_hint: {'top': 1}
+            height: 44
+
+            Label:
+                height: 24
+                text_size: self.width, None
+                text: '   Date: ' + root.my_text
+
+            Label:
+                height: 24
+                text_size: self.width, None
+                text: '   Time: ' + root.my_text_2
+
+        BoxLayout:
+            padding: 3
+            GridLayout:
+                cols: 1
+                size: root.width, root.height
+                GridLayout:
+                    cols: 2
+                    Label:
+                        text:'Event Category'
+                    TextInput:
+                        id: event_category
+                        multiline: False
+                        text: root.manager.my_global 
+                        readonly: True
+                    Label:
+                        text:'Type'
+                    Spinner:
+                        id: room_type
+                        size_hint: 0.5,0.1
+                        pos_hint: {'center_x': 0.5, 'center_y': 0.5}
+                        text: "Select Event Type" 
+                        values:['Room clean', 'Noise Alarm', 'Fallen Object'] 
+                        on_text: root.spinner_clicked(room_type.text)
+                    Label: 
+                        text:'Start Time'
+                    TextInput:
+                        id: start_time
+                        hint_text: "Type time e.g. 11:30 (24 hour system)"
+                        multiline: False
+                    Label: 
+                        text:'End Time'
+                    TextInput:
+                        id:end_time
+                        hint_text: "Type time e.g. 14:30 (24 hour system)"
+                        multiline: False
+                    Label:
+                        text:'Date'
+                    DatePicker:
+                        pHint: 1,1
+                        size_hint_x: .4
+                        id: date
+                        multiline: False
+                    Label:
+                        text:'Description'
+                    TextInput:
+                        id: description
+                        multiline: False 
+                    Label:
+                        text:''
+                    Label:
+                        text:''
+
+        RelativeLayout:
+            size_hint_y:None
+            height: 65
+            GridLayout:
+                padding:5
+                spacing: 2
+                rows: 1
+                Button:
+                    text: "Back"
+                    background_color:0, 0, 1 ,1
+                    pos_hint: {'bottom':1, 'left': 1}
+                    on_press: 
+                        root.manager.current="first_screen"
+                        root.manager.transition.direction="right"  
+                Label:
+                    text:''
+                Label:
+                    text:''
+                Label:
+                    text:''
+                Label:
+                    text:''
+                Button:
+                    text: "Finish"
+                    background_color: 0,1,0,1
+                    pos_hint: {'bottom':1, 'right': 1}
+                    on_press: root.onPressFinish() 
+
+
+<RecordRackEvent>:
+    name: "rack"
+    event_category: event_category
+    start_time: start_time
+    end_time: end_time
+    date: date
+    cages_selected:cages_selected
+    description: description
+    rack_type: rack_type
+
+    BoxLayout:
+        canvas.before:
+            Color:
+                rgba: 0, 0, 0 ,1
+            Rectangle:
+                size: self.size
+                pos: self.pos
+
+    GridLayout:
+        rows: 3
+        spacing: 1.5
+        BoxLayout:
+            canvas.before:
+                Color:
+                    rgba: 1, 0, 1 ,0.4
+                Rectangle:
+                    size: self.size
+                    pos: self.pos
+
+            orientation: 'horizontal'
+            size_hint: 1, None
+            pos_hint: {'top': 1}
+            height: 44
+
+            Label:
+                height: 24
+                text_size: self.width, None
+                text: '   Date: ' + root.my_text
+
+            Label:
+                height: 24
+                text_size: self.width, None
+                text: '   Time: ' + root.my_text_2
+
+        BoxLayout:
+            padding: 3
+            GridLayout:
+                cols: 1
+                size: root.width, root.height
+                GridLayout:
+                    cols: 2
+                    Label:
+                        text:'Event Category'
+                    TextInput:
+                        id: event_category
+                        multiline: False
+                        text: root.manager.my_global 
+                        readonly: True
+                    Label:
+                        text:'Selected Cages'
+                    TextInput:
+                        id: cages_selected
+                        multiline: True
+                        text: ""
+                        readonly: True
+                    Label:
+                        text:'Type'
+                    Spinner:
+                        id: rack_type
+                        size_hint: 0.5,0.1
+                        pos_hint: {'center_x': 0.5, 'center_y': 0.5}
+                        text: "Select Event Type" 
+                        values:['Multicage Inspection'] 
+                        on_text: root.spinner_clicked(rack_type.text)
+                    Label:
+                        text:'Start Time'
+                    TextInput:
+                        id: start_time
+                        hint_text: "Type time e.g. 11:30 (24 hour system)"
+                        multiline: False
+                    Label:
+                        text:'End Time'
+                    TextInput:
+                        id: end_time
+                        hint_text: "Type time e.g. 14:30 (24 hour system)"
+                        multiline: False
+                    Label:
+                        text:'Date'
+                    DatePicker:
+                        pHint: 1,1
+                        size_hint_x: .4
+                        id: date
+                        multiline: False
+                    Label:
+                        text:'Description'
+                    TextInput:
+                        id: description
+                        multiline: False 
+
+        RelativeLayout:
+            size_hint_y:None
+            height: 65
+            GridLayout:
+                padding:5
+                spacing: 2
+                rows: 1
+                Button:
+                    text: "Back"
+                    background_color:0, 0, 1 ,1
+                    pos_hint: {'bottom':1, 'left': 1}
+                    on_press: 
+                        root.manager.current="inspect"
+                        root.manager.transition.direction="right"  
+                Label:
+                    text:''
+                Label:
+                    text:''
+                Label:
+                    text:''
+                Label:
+                    text:''
+                Button:
+                    text: "Finish"
+                    background_color: 0,1,0,1
+                    pos_hint: {'bottom':1, 'right': 1}
+                    on_press: root.onPressFinish() 
+
+
+
+<AddEventWindow>:
+    name: "add"
+    event_category: event_category
+    event_name: event_name
+    description: description
+
+    BoxLayout:
+        canvas.before:
+            Color:
+                rgba: 1, 1, 1 ,0.2
+            Rectangle:
+                size: self.size
+                pos: self.pos
+    GridLayout:
+        rows: 4
+        spacing: 1.5
+        BoxLayout:
+            canvas.before:
+                Color:
+                    rgba: 1, 0, 1 ,0.4
+                Rectangle:
+                    size: self.size
+                    pos: self.pos
+
+            orientation: 'horizontal'
+            size_hint: 1, None
+            pos_hint: {'top': 1}
+            height: 44
+
+            Label:
+                height: 24
+                text_size: self.width, None
+                text: '   Date: ' + root.my_text
+
+            Label:
+                height: 24
+                text_size: self.width, None
+                text: '   Time: ' + root.my_text_2
+
+        BoxLayout:
+            padding: 3
+            GridLayout:
+                cols: 1
+                size: root.width, root.height
+                GridLayout:
+                    cols: 2
+                    Label:
+                        text:''
+                    Label:
+                        text:''
+                    Label:
+                        text:'Event Category'
+                    Spinner:
+                        id: event_category
+                        size_hint: 0.5,0.1
+                        pos_hint: {'center_x': 0.5, 'center_y': 0.5}
+                        text: "Select Event Category" 
+                        values:['Individual Animal', 'Room Level', 'Cage','Rack'] 
+                        on_text: root.spinner_clicked(event_category.text)
+                    Label:
+                        text:'Event Name'
+                    TextInput:
+                        id: event_name
+                        multiline: False
+                        text:''
+                    Label:
+                        text:' Event Description'
+                    TextInput:
+                        id: description
+                        multiline: False 
+                    Label:
+                        text:''
+                    Label:
+                        text: ''        
+        BoxLayout:
+            orientation:'vertical'  
+            size_hint_y:None
+            height: 60
+            Label:
+                id: event_type_label
+                font_size: 18
+                text:''
+                bold: True 
+        RelativeLayout:
+            size_hint_y:None
+            height: 65
+            GridLayout:
+                padding:5
+                spacing: 2
+                rows: 1
+                Button:
+                    text: "Back"
+                    background_color:0, 0, 1 ,1
+                    pos_hint: {'bottom':1, 'left': 1}
+                    on_press: 
+                        root.manager.current="first_screen"
+                        root.manager.transition.direction="right"  
+                Label:
+                    text:''
+                Label:
+                    text:''
+                Label:
+                    text:''
+                Label:
+                    text:''
+                Button:
+                    text: "Finish"
+                    background_color: 0,1,0,1
+                    pos_hint: {'bottom':1, 'right': 1}
+                    on_press: root.onPressFinish()     
+
